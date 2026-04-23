@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDTIC | PDTIC Anterior — Lições Aprendidas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/govbr-core.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-[#F8F8F8] min-h-screen font-rawline">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#071d41]">
+    <div class="flex items-center justify-between px-6 h-14">
+      <div class="flex items-center gap-3">
+        <button onclick="toggleSidebar()" class="lg:hidden text-white p-1"><i class="fas fa-bars text-lg"></i></button>
+        <a href="index.html" class="text-white font-bold text-lg tracking-wide">PDTIC</a>
+        <span class="text-[#81aefc] text-lg">|</span>
+        <span class="text-[#adcdff] text-sm">ANADEC</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[#adcdff] text-sm hidden sm:inline">Gestor TI</span>
+        <div class="w-8 h-8 rounded-full bg-[#2670e8] text-white flex items-center justify-center text-sm font-medium">GT</div>
+      </div>
+    </div>
+    <div class="bg-[#0c326f] h-8 flex items-center px-6">
+      <span class="text-[#adcdff] text-xs">Sistema de Gestão do PDTIC</span>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="govbr-sidebar" class="fixed top-[5.5rem] left-0 w-60 h-full bg-[#1351b4] z-40 overflow-y-auto transition-transform lg:translate-x-0 -translate-x-full">
+    <nav class="py-4">
+      <div class="px-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">Geral</span></div>
+      <a href="index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-home w-4 text-center"></i> Painel Geral</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">1. Preparação</span></div>
+      <a href="documentos-referencia.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-book w-4 text-center"></i> Docs de Referência e Normativos</a>
+      <a href="linha-tempo.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-clock w-4 text-center"></i> Ciclo de Vida do PDTIC</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">2. Diagnóstico</span></div>
+      <a href="pdtic-anterior.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition bg-[#155bcb] font-medium"><i class="fas fa-history w-4 text-center"></i> PDTIC Anterior — Lições Aprendidas</a>
+      <a href="inventario-necessidades.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-clipboard-list w-4 text-center"></i> Inventário de Necessidades de TIC</a>
+      <a href="analise-swot.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-th-large w-4 text-center"></i> Diagnóstico Estratégico (SWOT)</a>
+      <a href="matriz-riscos.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-exclamation-triangle w-4 text-center"></i> Gestão de Riscos de TIC</a>
+      <a href="mapa-cobertura-efgd.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-compass w-4 text-center"></i> Cobertura da EFGD</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">3. Planejamento</span></div>
+      <a href="principios-criterios.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-balance-scale w-4 text-center"></i> Princípios e Critérios de Priorização</a>
+      <a href="assistente-demandas.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-plus-circle w-4 text-center"></i> Oficialização de Demandas</a>
+      <a href="matriz-rastreabilidade.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-sitemap w-4 text-center"></i> Rastreabilidade Estratégica (MRE)</a>
+      <a href="mapa-alinhamento.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-project-diagram w-4 text-center"></i> Alinhamento Estratégico ao PEI</a>
+      <a href="checklist-elaboracao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-tasks w-4 text-center"></i> Conteúdo Mínimo (Checklist)</a>
+      <a href="verificacao-minuta.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-search-plus w-4 text-center"></i> Verificação de Conformidade</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">4. Acompanhamento</span></div>
+      <a href="painel-execucao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-chart-line w-4 text-center"></i> Painel de Execução do PDTIC</a>
+      <a href="acompanhamento-metas.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-bullseye w-4 text-center"></i> Metas e Ações do PDTIC</a>
+      <a href="plano-orcamentario.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-coins w-4 text-center"></i> Execução Orçamentária</a>
+      <a href="capacidade-execucao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-users-cog w-4 text-center"></i> Capacidade Institucional</a>
+      <a href="dashboard-conformidade.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-shield-alt w-4 text-center"></i> Conformidade e Auditoria</a>
+      <a href="atas-cgd.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-gavel w-4 text-center"></i> Governança — Atas do CGD</a>
+      <a href="relatorios-acompanhamento.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-file-alt w-4 text-center"></i> Relatório de Acompanhamento</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-60 pt-24 px-6 pb-6 bg-[#F8F8F8] min-h-screen">
+
+    <!-- Page Title + Breadcrumb -->
+    <div class="mb-6">
+      <nav class="text-xs text-[#999999] mb-2">
+        <a href="index.html" class="hover:text-[#1351b4]">Início</a>
+        <span class="mx-1">/</span>
+        <span class="text-[#1351b4]">Diagnóstico</span>
+        <span class="mx-1">/</span>
+        <span class="text-[#333333]">PDTIC Anterior</span>
+      </nav>
+      <h1 class="text-2xl font-bold text-[#071d41]">PDTIC Anterior - Referência Histórica</h1>
+      <p class="text-[#666666] text-sm mt-1">Análise do ciclo anterior para identificar lições aprendidas e lacunas</p>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5 mb-6">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-bold text-[#071d41]">Etapa de Elaboração</h3>
+        <span class="text-xs text-[#1351b4] font-medium">Etapa 3 de 20</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+      </div>
+      <p class="text-xs text-[#666666] mt-2">Preparação → <strong class="text-[#071d41]">PDTIC Anterior</strong> → Inventário → SWOT → Riscos → Cobertura EFGD → Princípios → Demandas → MRE → Alinhamento → Checklist → Verificação → Acompanhamento</p>
+    </div>
+
+    <!-- Upload Area for Current PDTIC -->
+    <div class="bg-white rounded-lg shadow-sm border-2 border-dashed border-[#1351b4]/40 p-6 mb-6" id="uploadArea">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-bold text-[#071d41]"><i class="fas fa-cloud-upload-alt mr-2 text-[#1351b4]"></i>Carregar PDTIC Vigente a Ser Descontinuado</h3>
+        <span class="text-[10px] text-[#999999] uppercase tracking-wider">Obrigatório para análise</span>
+      </div>
+      <p class="text-xs text-[#666666] mb-4">Faça o upload do documento do PDTIC atual que será substituído. A IA analisará o conteúdo para extrair automaticamente lições aprendidas, ações migradas e indicadores de desempenho.</p>
+
+      <!-- Drop Zone -->
+      <div id="dropZone" class="border-2 border-dashed border-[#CCCCCC] hover:border-[#1351b4] rounded-lg p-8 text-center transition cursor-pointer bg-[#FAFAFA] hover:bg-[#edf5ff]/30" onclick="document.getElementById('fileInput').click()" ondragover="event.preventDefault(); this.classList.add('border-[#1351b4]','bg-[#edf5ff]/30')" ondragleave="this.classList.remove('border-[#1351b4]','bg-[#edf5ff]/30')" ondrop="handleDrop(event)">
+        <div id="dropZoneContent">
+          <div class="w-14 h-14 rounded-full bg-[#edf5ff] text-[#1351b4] flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-file-pdf text-2xl"></i>
+          </div>
+          <p class="text-sm font-medium text-[#071d41] mb-1">Arraste o arquivo aqui ou clique para selecionar</p>
+          <p class="text-xs text-[#999999]">Formatos aceitos: PDF, DOCX, ODT (máx. 50 MB)</p>
+        </div>
+        <!-- Hidden file input -->
+        <input type="file" id="fileInput" class="hidden" accept=".pdf,.docx,.odt" onchange="handleFileSelect(this)">
+      </div>
+
+      <!-- File Preview (hidden by default) -->
+      <div id="filePreview" class="hidden mt-4">
+        <div class="flex items-center gap-4 p-4 bg-[#edf5ff]/50 rounded-lg border border-[#1351b4]/20">
+          <div class="w-10 h-10 rounded-lg bg-[#E60000]/10 text-[#E60000] flex items-center justify-center shrink-0">
+            <i class="fas fa-file-pdf text-lg"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-[#071d41] truncate" id="fileName">—</p>
+            <p class="text-xs text-[#999999]" id="fileSize">—</p>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <span id="uploadStatus" class="text-xs font-medium text-[#168821]"><i class="fas fa-check-circle mr-1"></i>Carregado</span>
+            <button onclick="removeFile()" class="w-8 h-8 rounded-full hover:bg-[#fde8e8] text-[#E60000] flex items-center justify-center transition" title="Remover arquivo">
+              <i class="fas fa-trash-alt text-sm"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Analysis Button -->
+      <div id="aiAnalysisArea" class="hidden mt-4 flex items-center gap-3">
+        <button onclick="runAIAnalysis()" id="btnAnalyze" class="px-5 py-2.5 bg-[#1351b4] hover:bg-[#155bcb] text-white text-sm font-medium rounded-md transition flex items-center gap-2">
+          <i class="fas fa-robot"></i> Analisar com IA
+        </button>
+        <span class="text-xs text-[#666666]">A IA extrairá lições aprendidas, ações e indicadores do documento</span>
+      </div>
+
+      <!-- AI Analysis Progress (hidden by default) -->
+      <div id="aiProgress" class="hidden mt-4">
+        <div class="flex items-center gap-3 p-4 bg-[#fff9db]/50 rounded-lg border border-[#FFCD07]/30">
+          <div class="w-8 h-8 rounded-full bg-[#FFCD07]/20 text-[#92780c] flex items-center justify-center shrink-0 animate-pulse">
+            <i class="fas fa-cog fa-spin text-sm"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-[#92780c]" id="aiProgressText">Analisando documento...</p>
+            <div class="w-full bg-[#EEEEEE] rounded-full h-1.5 mt-2">
+              <div id="aiProgressBar" class="bg-[#1351b4] h-1.5 rounded-full transition-all duration-1000" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Previous PDTIC Info Card -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-bold text-[#071d41]"><i class="fas fa-history mr-2 text-[#1351b4]"></i>Informações do PDTIC Anterior</h3>
+        <span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2.5 py-1 rounded-full">Concluído</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="md:col-span-2">
+          <h4 class="text-lg font-bold text-[#071d41] mb-3">PDTIC 2021-2024</h4>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-calendar-alt text-[#1351b4] w-4 text-center"></i>
+              <span class="text-[#999999]">Período:</span>
+              <span class="text-[#333333] font-medium">01/2021 a 12/2024</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-check-circle text-[#168821] w-4 text-center"></i>
+              <span class="text-[#999999]">Aprovação:</span>
+              <span class="text-[#333333] font-medium">15/12/2020</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-user-tie text-[#1351b4] w-4 text-center"></i>
+              <span class="text-[#999999]">Aprovado por:</span>
+              <span class="text-[#333333] font-medium">Diretor Presidente</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-file-alt text-[#168821] w-4 text-center"></i>
+              <span class="text-[#999999]">Documento:</span>
+              <span class="text-[#1351b4] font-medium underline cursor-pointer" id="uploadedDocLink">PDTIC_2021-2024.pdf</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="space-y-3">
+            <div class="text-center p-3 bg-[#edf5ff] rounded-lg">
+              <p class="text-2xl font-bold text-[#1351b4]">43</p>
+              <p class="text-xs text-[#666666]">Total de Ações</p>
+            </div>
+            <div class="text-center p-3 bg-[#e6f5e8] rounded-lg">
+              <p class="text-2xl font-bold text-[#168821]">67%</p>
+              <p class="text-xs text-[#666666]">Taxa de Conclusão</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="space-y-3">
+            <div class="text-center p-3 bg-[#fff9db] rounded-lg">
+              <p class="text-2xl font-bold text-[#92780c]">R$ 12.450.000</p>
+              <p class="text-xs text-[#666666]">Orçamento Executado</p>
+            </div>
+            <div class="text-center p-3 bg-[#edf5ff] rounded-lg">
+              <p class="text-2xl font-bold text-[#1351b4]">78%</p>
+              <p class="text-xs text-[#666666]">Execução Orçamentária</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Execution Summary Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5 text-center">
+        <div class="w-12 h-12 rounded-full bg-[#e6f5e8] text-[#168821] flex items-center justify-center mx-auto mb-3">
+          <i class="fas fa-check-circle text-xl"></i>
+        </div>
+        <p class="text-3xl font-bold text-[#168821]">29</p>
+        <p class="text-xs text-[#666666] mt-1">Ações Concluídas</p>
+        <p class="text-sm font-semibold text-[#168821] mt-1">67%</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5 text-center">
+        <div class="w-12 h-12 rounded-full bg-[#fff9db] text-[#92780c] flex items-center justify-center mx-auto mb-3">
+          <i class="fas fa-exclamation-circle text-xl"></i>
+        </div>
+        <p class="text-3xl font-bold text-[#92780c]">8</p>
+        <p class="text-xs text-[#666666] mt-1">Ações Parciais</p>
+        <p class="text-sm font-semibold text-[#92780c] mt-1">19%</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5 text-center">
+        <div class="w-12 h-12 rounded-full bg-[#fde8e8] text-[#E60000] flex items-center justify-center mx-auto mb-3">
+          <i class="fas fa-times-circle text-xl"></i>
+        </div>
+        <p class="text-3xl font-bold text-[#E60000]">6</p>
+        <p class="text-xs text-[#666666] mt-1">Ações Não Executadas</p>
+        <p class="text-sm font-semibold text-[#E60000] mt-1">14%</p>
+      </div>
+    </div>
+
+    <!-- Chart: Execution by Objective -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <h3 class="text-sm font-bold text-[#071d41] mb-4"><i class="fas fa-chart-bar mr-2 text-[#1351b4]"></i>Execução por Objetivo Estratégico</h3>
+      <div style="max-height:320px;">
+        <canvas id="executionChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Lessons Learned Section -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-bold text-[#071d41]"><i class="fas fa-lightbulb mr-2 text-[#FFCD07]"></i>Lições Aprendidas</h3>
+        <span class="bg-[#fff9db] text-[#92780c] text-xs font-medium px-2 py-1 rounded-full">5 lições identificadas</span>
+      </div>
+      <div class="space-y-3">
+        <!-- Lesson 1 -->
+        <div class="flex items-start gap-4 p-4 rounded-lg border border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+          <div class="w-8 h-8 rounded-full bg-[#fde8e8] text-[#E60000] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fas fa-exclamation-triangle text-sm"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm text-[#333333]">Vinculação inadequada entre ações e objetivos estratégicos dificultou o monitoramento</p>
+          </div>
+          <button class="px-3 py-1.5 text-xs border border-[#1351b4] text-[#1351b4] hover:bg-[#edf5ff] rounded transition font-medium whitespace-nowrap">Aplicar ao novo PDTIC</button>
+        </div>
+        <!-- Lesson 2 -->
+        <div class="flex items-start gap-4 p-4 rounded-lg border border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+          <div class="w-8 h-8 rounded-full bg-[#fde8e8] text-[#E60000] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fas fa-exclamation-triangle text-sm"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm text-[#333333]">Falta de indicadores claros comprometeu a avaliação de resultados</p>
+          </div>
+          <button class="px-3 py-1.5 text-xs border border-[#1351b4] text-[#1351b4] hover:bg-[#edf5ff] rounded transition font-medium whitespace-nowrap">Aplicar ao novo PDTIC</button>
+        </div>
+        <!-- Lesson 3 -->
+        <div class="flex items-start gap-4 p-4 rounded-lg border border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+          <div class="w-8 h-8 rounded-full bg-[#fff9db] text-[#92780c] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fas fa-exclamation-circle text-sm"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm text-[#333333]">Orçamento subestimado em ações de infraestrutura gerou atrasos</p>
+          </div>
+          <button class="px-3 py-1.5 text-xs border border-[#1351b4] text-[#1351b4] hover:bg-[#edf5ff] rounded transition font-medium whitespace-nowrap">Aplicar ao novo PDTIC</button>
+        </div>
+        <!-- Lesson 4 -->
+        <div class="flex items-start gap-4 p-4 rounded-lg border border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+          <div class="w-8 h-8 rounded-full bg-[#fff9db] text-[#92780c] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fas fa-exclamation-circle text-sm"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm text-[#333333]">Ausência de plano de comunicação limitou o engajamento das áreas</p>
+          </div>
+          <button class="px-3 py-1.5 text-xs border border-[#1351b4] text-[#1351b4] hover:bg-[#edf5ff] rounded transition font-medium whitespace-nowrap">Aplicar ao novo PDTIC</button>
+        </div>
+        <!-- Lesson 5 -->
+        <div class="flex items-start gap-4 p-4 rounded-lg border border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+          <div class="w-8 h-8 rounded-full bg-[#edf5ff] text-[#1351b4] flex items-center justify-center shrink-0 mt-0.5">
+            <i class="fas fa-info-circle text-sm"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm text-[#333333]">Ciclo de revisão anual foi insuficiente para ajustes necessários</p>
+          </div>
+          <button class="px-3 py-1.5 text-xs border border-[#1351b4] text-[#1351b4] hover:bg-[#edf5ff] rounded transition font-medium whitespace-nowrap">Aplicar ao novo PDTIC</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <h3 class="text-sm font-bold text-[#071d41] mb-4"><i class="fas fa-exchange-alt mr-2 text-[#1351b4]"></i>Comparação com Ciclo Atual</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-[#1351b4]">
+              <th class="text-left py-3 px-4 text-[#071d41] font-bold">Aspecto</th>
+              <th class="text-left py-3 px-4 text-[#071d41] font-bold">PDTIC 2021-2024</th>
+              <th class="text-left py-3 px-4 text-[#071d41] font-bold">PDTIC 2025-2028 (Situação Atual)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-medium text-[#333333]">Alinhamento ao PEI</td>
+              <td class="py-3 px-4 text-[#92780c]"><i class="fas fa-exclamation-circle mr-1"></i>Parcial</td>
+              <td class="py-3 px-4 text-[#1351b4]"><i class="fas fa-spinner mr-1"></i>Em elaboração</td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-medium text-[#333333]">Inventário de Necessidades</td>
+              <td class="py-3 px-4 text-[#E60000]"><i class="fas fa-times-circle mr-1"></i>Desatualizado</td>
+              <td class="py-3 px-4 text-[#FFCD07]"><i class="fas fa-sync-alt mr-1"></i>Em atualização</td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-medium text-[#333333]">Indicadores de Desempenho</td>
+              <td class="py-3 px-4 text-[#92780c]"><i class="fas fa-percentage mr-1"></i>60% com indicadores</td>
+              <td class="py-3 px-4 text-[#1351b4]"><i class="fas fa-spinner mr-1"></i>Em definição</td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-medium text-[#333333]">Acomp. Orçamentário</td>
+              <td class="py-3 px-4 text-[#92780c]"><i class="fas fa-coins mr-1"></i>Agregado</td>
+              <td class="py-3 px-4 text-[#1351b4]"><i class="fas fa-clipboard-list mr-1"></i>A detalhar</td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-medium text-[#333333]">Matriz de Riscos</td>
+              <td class="py-3 px-4 text-[#E60000]"><i class="fas fa-times-circle mr-1"></i>Sem riscos de SI</td>
+              <td class="py-3 px-4 text-[#1351b4]"><i class="fas fa-spinner mr-1"></i>Em elaboração</td>
+            </tr>
+            <tr class="hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-medium text-[#333333]">Governança de Dados</td>
+              <td class="py-3 px-4 text-[#E60000]"><i class="fas fa-times-circle mr-1"></i>Ausente</td>
+              <td class="py-3 px-4 text-[#168821]"><i class="fas fa-check-circle mr-1"></i>Planejado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Previous Actions Migration -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-bold text-[#071d41]"><i class="fas fa-share-square mr-2 text-[#1351b4]"></i>Migração de Ações Anteriores</h3>
+        <span class="bg-[#edf5ff] text-[#1351b4] text-xs font-medium px-2 py-1 rounded-full">5 ações recomendadas</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-[#1351b4]">
+              <th class="text-left py-3 px-4 text-[#071d41] font-bold">Código</th>
+              <th class="text-left py-3 px-4 text-[#071d41] font-bold">Ação</th>
+              <th class="text-left py-3 px-4 text-[#071d41] font-bold">Status Anterior</th>
+              <th class="text-left py-3 px-4 text-[#071d41] font-bold">Recomendação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-mono text-[#1351b4] font-medium">AC-012</td>
+              <td class="py-3 px-4 text-[#333333]">Sistema de BI</td>
+              <td class="py-3 px-4"><span class="bg-[#fff9db] text-[#92780c] text-xs font-medium px-2 py-0.5 rounded-full">Parcial</span></td>
+              <td class="py-3 px-4"><span class="bg-[#edf5ff] text-[#1351b4] text-xs font-medium px-2 py-0.5 rounded-full"><i class="fas fa-arrow-up mr-1"></i>Manter e priorizar</span></td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-mono text-[#1351b4] font-medium">AC-023</td>
+              <td class="py-3 px-4 text-[#333333]">Portal de Transparência</td>
+              <td class="py-3 px-4"><span class="bg-[#fde8e8] text-[#E60000] text-xs font-medium px-2 py-0.5 rounded-full">Não executada</span></td>
+              <td class="py-3 px-4"><span class="bg-[#fff9db] text-[#92780c] text-xs font-medium px-2 py-0.5 rounded-full"><i class="fas fa-redo mr-1"></i>Reavaliar escopo</span></td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-mono text-[#1351b4] font-medium">AC-031</td>
+              <td class="py-3 px-4 text-[#333333]">Firewall UTM</td>
+              <td class="py-3 px-4"><span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2 py-0.5 rounded-full">Concluída</span></td>
+              <td class="py-3 px-4"><span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2 py-0.5 rounded-full"><i class="fas fa-sync mr-1"></i>Manter como manutenção</span></td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-mono text-[#1351b4] font-medium">AC-035</td>
+              <td class="py-3 px-4 text-[#333333]">Gestão de Dados</td>
+              <td class="py-3 px-4"><span class="bg-[#fff9db] text-[#92780c] text-xs font-medium px-2 py-0.5 rounded-full">Parcial</span></td>
+              <td class="py-3 px-4"><span class="bg-[#edf5ff] text-[#1351b4] text-xs font-medium px-2 py-0.5 rounded-full"><i class="fas fa-expand-arrows-alt mr-1"></i>Ampliar escopo</span></td>
+            </tr>
+            <tr class="hover:bg-[#F8F8F8] transition">
+              <td class="py-3 px-4 font-mono text-[#1351b4] font-medium">AC-040</td>
+              <td class="py-3 px-4 text-[#333333]">Capacitação TI</td>
+              <td class="py-3 px-4"><span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2 py-0.5 rounded-full">Concluída</span></td>
+              <td class="py-3 px-4"><span class="bg-[#edf5ff] text-[#1351b4] text-xs font-medium px-2 py-0.5 rounded-full"><i class="fas fa-redo mr-1"></i>Nova edição</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex items-center gap-3 mb-6">
+      <a href="inventario-necessidades.html" class="px-5 py-2.5 bg-[#1351b4] hover:bg-[#155bcb] text-white text-sm font-medium rounded-md transition">Próxima Etapa <i class="fas fa-arrow-right ml-1"></i></a>
+      <button class="px-5 py-2.5 bg-[#999999] hover:bg-[#666666] text-white text-sm font-medium rounded-md transition">Salvar Progresso</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-8 pt-4 border-t border-[#EEEEEE] text-center">
+      <p class="text-xs text-[#999999]">ANADEC - Agência Nacional de Desenvolvimento © 2026</p>
+    </footer>
+  </main>
+
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('govbr-sidebar');
+  sidebar.classList.toggle('-translate-x-full');
+  sidebar.classList.toggle('translate-x-0');
+}
+
+// ===== Upload PDTIC Anterior =====
+function handleDrop(event) {
+  event.preventDefault();
+  const dropZone = document.getElementById('dropZone');
+  dropZone.classList.remove('border-[#1351b4]', 'bg-[#edf5ff]/30');
+  const files = event.dataTransfer.files;
+  if (files.length > 0) processFile(files[0]);
+}
+
+function handleFileSelect(input) {
+  if (input.files.length > 0) processFile(input.files[0]);
+}
+
+function processFile(file) {
+  const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.oasis.opendocument.text'];
+  const allowedExts = ['.pdf', '.docx', '.odt'];
+  const ext = '.' + file.name.split('.').pop().toLowerCase();
+
+  if (!allowedExts.includes(ext)) {
+    alert('Formato não suportado. Use PDF, DOCX ou ODT.');
+    return;
+  }
+  if (file.size > 50 * 1024 * 1024) {
+    alert('Arquivo excede o limite de 50 MB.');
+    return;
+  }
+
+  // Show file preview
+  document.getElementById('fileName').textContent = file.name;
+  document.getElementById('fileSize').textContent = formatFileSize(file.size);
+  document.getElementById('filePreview').classList.remove('hidden');
+  document.getElementById('dropZone').classList.add('hidden');
+  document.getElementById('aiAnalysisArea').classList.remove('hidden');
+
+  // Update doc link in info card
+  const docLink = document.getElementById('uploadedDocLink');
+  if (docLink) docLink.textContent = file.name;
+}
+
+function removeFile() {
+  document.getElementById('fileInput').value = '';
+  document.getElementById('filePreview').classList.add('hidden');
+  document.getElementById('dropZone').classList.remove('hidden');
+  document.getElementById('aiAnalysisArea').classList.add('hidden');
+  document.getElementById('aiProgress').classList.add('hidden');
+
+  // Reset doc link
+  const docLink = document.getElementById('uploadedDocLink');
+  if (docLink) docLink.textContent = 'PDTIC_2021-2024.pdf';
+}
+
+function formatFileSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / 1048576).toFixed(1) + ' MB';
+}
+
+function runAIAnalysis() {
+  const progressArea = document.getElementById('aiProgress');
+  const analysisArea = document.getElementById('aiAnalysisArea');
+  const progressBar = document.getElementById('aiProgressBar');
+  const progressText = document.getElementById('aiProgressText');
+
+  analysisArea.classList.add('hidden');
+  progressArea.classList.remove('hidden');
+
+  const steps = [
+    { text: 'Extraindo texto do documento...', pct: 15 },
+    { text: 'Identificando objetivos estratégicos...', pct: 30 },
+    { text: 'Analisando metas e ações...', pct: 50 },
+    { text: 'Avaliando indicadores de desempenho...', pct: 65 },
+    { text: 'Extraindo lições aprendidas...', pct: 80 },
+    { text: 'Gerando recomendações de migração...', pct: 95 },
+    { text: 'Análise concluída!', pct: 100 }
+  ];
+
+  let i = 0;
+  function nextStep() {
+    if (i < steps.length) {
+      progressText.textContent = steps[i].text;
+      progressBar.style.width = steps[i].pct + '%';
+      i++;
+      setTimeout(nextStep, 800 + Math.random() * 600);
+    } else {
+      setTimeout(() => {
+        progressArea.classList.add('hidden');
+        // Show success notification
+        const uploadArea = document.getElementById('uploadArea');
+        const successBanner = document.createElement('div');
+        successBanner.className = 'mt-4 p-3 bg-[#e6f5e8] border border-[#168821]/30 rounded-lg flex items-center gap-3';
+        successBanner.innerHTML = '<div class="w-8 h-8 rounded-full bg-[#168821]/20 text-[#168821] flex items-center justify-center shrink-0"><i class="fas fa-check-circle"></i></div><div><p class="text-sm font-medium text-[#168821]">Análise concluída com sucesso</p><p class="text-xs text-[#666666]">5 lições aprendidas, 5 ações recomendadas para migração e 4 indicadores extraídos do documento.</p></div>';
+        uploadArea.appendChild(successBanner);
+      }, 500);
+    }
+  }
+  nextStep();
+}
+
+// Execution by Objective Chart
+new Chart(document.getElementById('executionChart'), {
+  type: 'bar',
+  data: {
+    labels: ['OE1 Modernização', 'OE2 Transparência', 'OE3 Eficiência', 'OE4 Inovação'],
+    datasets: [{
+      label: 'Taxa de Conclusão (%)',
+      data: [75, 70, 60, 55],
+      backgroundColor: ['#1351b4', '#2670e8', '#5992ed', '#81aefc'],
+      borderWidth: 0,
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return context.parsed.x + '% concluído';
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        max: 100,
+        grid: { color: '#EEEEEE' },
+        ticks: {
+          callback: function(value) { return value + '%'; },
+          font: { size: 11 },
+          color: '#999999'
+        }
+      },
+      y: {
+        grid: { display: false },
+        ticks: {
+          font: { size: 12 },
+          color: '#333333'
+        }
+      }
+    }
+  }
+});
+</script>
+
+<!-- Chat PDTIC Widget -->
+<div id="chatWidget" class="fixed bottom-6 right-6 z-50">
+  <!-- Chat Panel -->
+  <div id="chatPanel" class="hidden mb-4 w-80 bg-white rounded-xl shadow-2xl border border-[#EEEEEE] overflow-hidden flex flex-col" style="height:460px;">
+    <!-- Chat Header -->
+    <div class="bg-[#071d41] px-4 py-3 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-full bg-[#2670e8] flex items-center justify-center">
+          <i class="fas fa-robot text-white text-xs"></i>
+        </div>
+        <div>
+          <p class="text-white text-sm font-semibold">Assistente PDTIC</p>
+          <p class="text-[#adcdff] text-[10px]">Tire dúvidas sobre a elaboração</p>
+        </div>
+      </div>
+      <button onclick="toggleChat()" class="text-[#adcdff] hover:text-white transition">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <!-- Chat Messages -->
+    <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[#F8F8F8]">
+      <!-- Bot Welcome -->
+      <div class="flex items-start gap-2">
+        <div class="w-6 h-6 rounded-full bg-[#2670e8] flex items-center justify-center shrink-0 mt-0.5">
+          <i class="fas fa-robot text-white text-[8px]"></i>
+        </div>
+        <div class="bg-white rounded-lg rounded-tl-none px-3 py-2 shadow-sm max-w-[85%]">
+          <p class="text-sm text-[#333333]">Olá! Sou o assistente de elaboração do PDTIC. Posso ajudá-lo com dúvidas sobre o Guia do PDTIC, Portaria SISP 778/2021, requisitos do TCU e boas práticas de elaboração.</p>
+          <p class="text-[10px] text-[#999999] mt-1">Agora</p>
+        </div>
+      </div>
+      <!-- Quick Actions -->
+      <div class="flex flex-wrap gap-1.5 pl-8">
+        <button onclick="sendQuickMessage('Quais documentos são obrigatórios para o PDTIC?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Docs obrigatórios</button>
+        <button onclick="sendQuickMessage('Como fazer o alinhamento com o PEI?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Alinhamento PEI</button>
+        <button onclick="sendQuickMessage('Quais os pilares de conformidade do TCU?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Pilares TCU</button>
+        <button onclick="sendQuickMessage('Como elaborar o inventário de necessidades?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Inventário</button>
+      </div>
+    </div>
+    <!-- Chat Input -->
+    <div class="px-3 py-2.5 border-t border-[#EEEEEE] bg-white shrink-0">
+      <div class="flex items-center gap-2">
+        <input id="chatInput" type="text" placeholder="Digite sua dúvida..." class="flex-1 border border-[#CCCCCC] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1351b4] focus:ring-1 focus:ring-[#1351b4]" onkeydown="if(event.key==='Enter')sendMessage()">
+        <button onclick="sendMessage()" class="w-9 h-9 bg-[#1351b4] hover:bg-[#155bcb] text-white rounded-lg flex items-center justify-center transition shrink-0">
+          <i class="fas fa-paper-plane text-sm"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Floating Button -->
+  <button onclick="toggleChat()" id="chatBtn" class="w-14 h-14 bg-[#1351b4] hover:bg-[#155bcb] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-105 hover:shadow-xl ml-auto">
+    <i class="fas fa-comments text-xl" id="chatBtnIcon"></i>
+  </button>
+  <!-- Tooltip -->
+  <div id="chatTooltip" class="absolute bottom-16 right-0 mb-2 bg-[#071d41] text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 pointer-events-none transition-opacity">
+    Dúvidas sobre o PDTIC?
+    <div class="absolute -bottom-1 right-6 w-2 h-2 bg-[#071d41] transform rotate-45"></div>
+  </div>
+</div>
+
+<script>
+// Chat Widget Functions
+function toggleChat() {
+  const panel = document.getElementById('chatPanel');
+  const btnIcon = document.getElementById('chatBtnIcon');
+  const tooltip = document.getElementById('chatTooltip');
+  panel.classList.toggle('hidden');
+  if (panel.classList.contains('hidden')) {
+    btnIcon.className = 'fas fa-comments text-xl';
+  } else {
+    btnIcon.className = 'fas fa-times text-xl';
+    tooltip.style.opacity = '0';
+  }
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  appendMessage(msg, 'user');
+  input.value = '';
+  setTimeout(() => {
+    const response = getBotResponse(msg);
+    appendMessage(response, 'bot');
+  }, 600 + Math.random() * 800);
+}
+
+function sendQuickMessage(msg) {
+  appendMessage(msg, 'user');
+  setTimeout(() => {
+    const response = getBotResponse(msg);
+    appendMessage(response, 'bot');
+  }, 600 + Math.random() * 800);
+}
+
+function appendMessage(text, sender) {
+  const container = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  const now = new Date();
+  const time = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+  if (sender === 'user') {
+    div.className = 'flex justify-end';
+    div.innerHTML = '<div class="bg-[#1351b4] text-white rounded-lg rounded-tr-none px-3 py-2 max-w-[85%] shadow-sm"><p class="text-sm">' + text + '</p><p class="text-[10px] text-[#adcdff] mt-1 text-right">' + time + '</p></div>';
+  } else {
+    div.className = 'flex items-start gap-2';
+    div.innerHTML = '<div class="w-6 h-6 rounded-full bg-[#2670e8] flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-robot text-white text-[8px]"></i></div><div class="bg-white rounded-lg rounded-tl-none px-3 py-2 shadow-sm max-w-[85%]"><p class="text-sm text-[#333333]">' + text + '</p><p class="text-[10px] text-[#999999] mt-1">' + time + '</p></div>';
+  }
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function getBotResponse(msg) {
+  const m = msg.toLowerCase();
+  if (m.includes('obrigatório') || m.includes('documento')) {
+    return 'Segundo o Guia do PDTIC do SISP, os documentos obrigatórios são: PEI, EFGD, LDO, LOA, PCA, PDTIC anterior, inventário de necessidades e análise de riscos. A Portaria SISP 778/2021 detalha os requisitos mínimos em seu Anexo I.';
+  } else if (m.includes('alinhamento') || m.includes('pei')) {
+    return 'O alinhamento com o PEI deve ser demonstrado na Seção 3 do PDTIC, mapeando cada meta de TI a um objetivo estratégico do PEI. Use a ferramenta Mapa de Alinhamento para visualizar e validar essa vinculação.';
+  } else if (m.includes('tcu') || m.includes('pilar') || m.includes('conformidade')) {
+    return 'O TCU avalia o PDTIC em 5 pilares: (1) Alinhamento Estratégico, (2) Qualidade Técnica, (3) Governança de Dados, (4) Governança Ativa e (5) Documentação. Acesse o dashboard de Conformidade para ver o status de cada pilar.';
+  } else if (m.includes('inventário') || m.includes('necessidade')) {
+    return 'O inventário de necessidades deve seguir o modelo do Anexo IV da Portaria SISP 778/2021, contendo: descrição, categoria, prioridade, área solicitante, valor estimado e vinculação ao PEI. Use a página Inventário de Necessidades para cadastrar e gerenciar.';
+  } else if (m.includes('portaria') || m.includes('778') || m.includes('sisp')) {
+    return 'A Portaria SISP 778/2021 estabelece orientações para elaboração, revisão e acompanhamento do PDTIC. Os principais requisitos estão nos Anexos I (conteúdo mínimo), II (modelo de meta), III (modelo de ação) e IV (inventário de necessidades).';
+  } else if (m.includes('meta') || m.includes('ação')) {
+    return 'Cada meta do PDTIC deve conter: descrição, indicador, linha de base, meta final, prazo, responsável e valor estimado. As ações detalham as etapas para alcançar cada meta. Use o Assistente de Demandas para cadastrar novas demandas que alimentarão as metas.';
+  } else if (m.includes('risco')) {
+    return 'A gestão de riscos do PDTIC deve seguir a metodologia da Norma ABNT 31000. Os riscos devem ser identificados, avaliados (probabilidade x impacto) e tratados com planos de mitigação. Acesse a Matriz de Riscos para gerenciar.';
+  } else if (m.includes('orçamento') || m.includes('custo') || m.includes('valor')) {
+    return 'O orçamento do PDTIC deve ser compatível com o PCA e a LOA. Cada ação deve ter valor estimado e fonte de recurso identificada. O Acompanhamento Orçamentário permite monitorar a execução financeira em tempo real.';
+  } else if (m.includes('minuta') || m.includes('verificação')) {
+    return 'A verificação de conformidade da minuta compara seu PDTIC contra os documentos de referência (PEI, EFGD, Portaria 778, normativos TCU). Acesse Verificação da Minuta para submeter seu documento e receber o relatório de não conformidades.';
+  } else if (m.includes('cgd') || m.includes('governança')) {
+    return 'O Comitê de Governança de Dados (CGD) é responsável por supervisionar a execução do PDTIC. As atas das reuniões registram decisões sobre metas, ações e ajustes, formando a memória institucional da governança de TI.';
+  } else {
+    return 'Posso ajudá-lo com dúvidas sobre o Guia do PDTIC, Portaria SISP 778/2021, conformidade TCU, elaboração de metas e ações, inventário de necessidades, gestão de riscos e orçamento. Qual assunto interessa?';
+  }
+}
+
+// Auto-show tooltip after 5 seconds
+setTimeout(() => {
+  const tooltip = document.getElementById('chatTooltip');
+  const panel = document.getElementById('chatPanel');
+  if (panel.classList.contains('hidden')) {
+    tooltip.style.opacity = '1';
+    setTimeout(() => { tooltip.style.opacity = '0'; }, 4000);
+  }
+}, 5000);
+</script>
+
+</body>
+</html>

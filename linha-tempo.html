@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDTIC | Ciclo de Vida do PDTIC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/govbr-core.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  
+  <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @keyframes pulse-blue {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); }
+      50% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+    }
+    .pulse-current { animation: pulse-blue 2s infinite; }
+  </style>
+</head>
+<body class="bg-[#F8F8F8] min-h-screen font-rawline">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#071d41]">
+    <div class="flex items-center justify-between px-6 h-14">
+      <div class="flex items-center gap-3">
+        <button onclick="toggleSidebar()" class="lg:hidden text-white p-1">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+        <a href="index.html" class="text-white font-bold text-lg tracking-wide">PDTIC</a>
+        <span class="text-[#81aefc] text-lg">|</span>
+        <span class="text-[#adcdff] text-sm">ANADEC</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[#adcdff] text-sm hidden sm:inline">Gestor TI</span>
+        <div class="w-8 h-8 rounded-full bg-[#2670e8] text-white flex items-center justify-center text-sm font-medium">GT</div>
+      </div>
+    </div>
+    <div class="bg-[#0c326f] h-8 flex items-center px-6">
+      <span class="text-[#adcdff] text-xs">Sistema de Gestão do PDTIC</span>
+    </div>
+  </header>
+  <aside id="govbr-sidebar" class="fixed top-[5.5rem] left-0 w-60 h-full bg-[#1351b4] z-40 overflow-y-auto transition-transform lg:translate-x-0 -translate-x-full">
+    <nav class="py-4">
+      <div class="px-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">Geral</span></div>
+      <a href="index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-home w-4 text-center"></i> Painel Geral</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">1. Preparação</span></div>
+      <a href="documentos-referencia.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-book w-4 text-center"></i> Docs de Referência e Normativos</a>
+      <a href="linha-tempo.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition bg-[#155bcb] font-medium"><i class="fas fa-clock w-4 text-center"></i> Ciclo de Vida do PDTIC</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">2. Diagnóstico</span></div>
+      <a href="pdtic-anterior.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-history w-4 text-center"></i> PDTIC Anterior — Lições Aprendidas</a>
+      <a href="inventario-necessidades.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-clipboard-list w-4 text-center"></i> Inventário de Necessidades de TIC</a>
+      <a href="analise-swot.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-th-large w-4 text-center"></i> Diagnóstico Estratégico (SWOT)</a>
+      <a href="matriz-riscos.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-exclamation-triangle w-4 text-center"></i> Gestão de Riscos de TIC</a>
+      <a href="mapa-cobertura-efgd.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-compass w-4 text-center"></i> Cobertura da EFGD</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">3. Planejamento</span></div>
+      <a href="principios-criterios.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-balance-scale w-4 text-center"></i> Princípios e Critérios de Priorização</a>
+      <a href="assistente-demandas.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-plus-circle w-4 text-center"></i> Oficialização de Demandas</a>
+      <a href="matriz-rastreabilidade.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-sitemap w-4 text-center"></i> Rastreabilidade Estratégica (MRE)</a>
+      <a href="mapa-alinhamento.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-project-diagram w-4 text-center"></i> Alinhamento Estratégico ao PEI</a>
+      <a href="checklist-elaboracao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-tasks w-4 text-center"></i> Conteúdo Mínimo (Checklist)</a>
+      <a href="verificacao-minuta.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-search-plus w-4 text-center"></i> Verificação de Conformidade</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">4. Acompanhamento</span></div>
+      <a href="painel-execucao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-chart-line w-4 text-center"></i> Painel de Execução do PDTIC</a>
+      <a href="acompanhamento-metas.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-bullseye w-4 text-center"></i> Metas e Ações do PDTIC</a>
+      <a href="plano-orcamentario.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-coins w-4 text-center"></i> Execução Orçamentária</a>
+      <a href="capacidade-execucao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-users-cog w-4 text-center"></i> Capacidade Institucional</a>
+      <a href="dashboard-conformidade.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-shield-alt w-4 text-center"></i> Conformidade e Auditoria</a>
+      <a href="atas-cgd.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-gavel w-4 text-center"></i> Governança — Atas do CGD</a>
+      <a href="relatorios-acompanhamento.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-file-alt w-4 text-center"></i> Relatório de Acompanhamento</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-60 pt-24 px-6 pb-6 bg-[#F8F8F8] min-h-screen">
+
+    <!-- Page Title -->
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-[#071d41]">Ciclo de Vida do PDTIC</h1>
+      <p class="text-sm text-[#999999] mt-1">Cronograma, fases e institucionalização do processo de elaboração</p>
+    </div>
+
+    <!-- Current Phase Card -->
+    <div class="bg-white rounded-lg shadow-sm border-l-4 border-[#1351b4] p-6 mb-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-lg font-semibold text-[#071d41]">Fase Atual: Execução e Monitoramento</h2>
+          <p class="text-sm text-[#999999] mt-1">PDTIC 2025-2028 | Início: 01/01/2025 | Término: 31/12/2028</p>
+        </div>
+        <span class="px-3 py-1 text-sm font-medium rounded-full bg-[#e8f5ff] text-[#005EA2]">Em andamento</span>
+      </div>
+      <div class="mt-4">
+        <div class="flex justify-between text-xs text-[#999999] mb-1">
+          <span>Progresso do ciclo</span>
+          <span>33%</span>
+        </div>
+        <div class="w-full bg-[#CCCCCC] rounded-full h-2">
+          <div class="bg-blue-600 h-2 rounded-full" style="width: 33%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Horizontal Phase Timeline -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <h2 class="text-lg font-semibold text-[#071d41] mb-6">Fases do Ciclo de Vida</h2>
+      <div class="relative flex items-center justify-between px-4">
+        <!-- Connecting line -->
+        <div class="absolute top-5 left-8 right-8 h-0.5 bg-[#CCCCCC] z-0"></div>
+        <div class="absolute top-5 left-8 h-0.5 bg-[#e6f5e8]0 z-0" style="width: calc(60% - 8px)"></div>
+
+        <!-- Phase 1 -->
+        <div class="relative z-10 flex flex-col items-center w-1/6">
+          <div class="w-10 h-10 rounded-full bg-[#e6f5e8]0 text-white flex items-center justify-center text-lg">&#10003;</div>
+          <p class="text-xs font-medium text-[#071d41] text-center mt-2">Institucionalização</p>
+          <p class="text-xs text-[#999999] text-center">01-03/2025</p>
+        </div>
+        <!-- Phase 2 -->
+        <div class="relative z-10 flex flex-col items-center w-1/6">
+          <div class="w-10 h-10 rounded-full bg-[#e6f5e8]0 text-white flex items-center justify-center text-lg">&#10003;</div>
+          <p class="text-xs font-medium text-[#071d41] text-center mt-2">Diagnóstico</p>
+          <p class="text-xs text-[#999999] text-center">04-06/2025</p>
+        </div>
+        <!-- Phase 3 -->
+        <div class="relative z-10 flex flex-col items-center w-1/6">
+          <div class="w-10 h-10 rounded-full bg-[#e6f5e8]0 text-white flex items-center justify-center text-lg">&#10003;</div>
+          <p class="text-xs font-medium text-[#071d41] text-center mt-2">Planejamento</p>
+          <p class="text-xs text-[#999999] text-center">07-09/2025</p>
+        </div>
+        <!-- Phase 4 -->
+        <div class="relative z-10 flex flex-col items-center w-1/6">
+          <div class="w-10 h-10 rounded-full bg-[#e6f5e8]0 text-white flex items-center justify-center text-lg">&#10003;</div>
+          <p class="text-xs font-medium text-[#071d41] text-center mt-2">Aprovação</p>
+          <p class="text-xs text-[#999999] text-center">10-12/2025</p>
+        </div>
+        <!-- Phase 5 - Current -->
+        <div class="relative z-10 flex flex-col items-center w-1/6">
+          <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center pulse-current">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="4"/></svg>
+          </div>
+          <p class="text-xs font-medium text-[#071d41] text-center mt-2">Execução e Monitoramento</p>
+          <p class="text-xs text-[#2670e8] text-center">01/2026-09/2028</p>
+        </div>
+        <!-- Phase 6 -->
+        <div class="relative z-10 flex flex-col items-center w-1/6">
+          <div class="w-10 h-10 rounded-full bg-[#CCCCCC] text-[#999999] flex items-center justify-center text-lg">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="4"/></svg>
+          </div>
+          <p class="text-xs font-medium text-[#999999] text-center mt-2">Avaliação e Atualização</p>
+          <p class="text-xs text-[#999999] text-center">10-12/2028</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase Detail Accordion -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <h2 class="text-lg font-semibold text-[#071d41] mb-4">Detalhes das Fases</h2>
+      <div class="space-y-2">
+
+        <!-- Phase 1 -->
+        <div class="border border-[#EEEEEE] rounded-md">
+          <button onclick="togglePhase(this)" class="w-full flex justify-between items-center px-4 py-3 text-sm font-medium text-[#071d41] hover:bg-[#F8F8F8]">
+            <span>1. Institucionalização</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 text-xs rounded-full bg-[#e6f5e8] text-[#168821]">Concluído</span>
+              <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </button>
+          <div class="hidden px-4 pb-3 text-sm text-[#666666]">
+            <p class="mb-2"><strong>Descrição:</strong> Constituição dos órgãos de governança de TI e formalização do processo de elaboração do PDTIC.</p>
+            <p class="mb-1"><strong>Atividades:</strong></p>
+            <ul class="list-disc list-inside mb-2 space-y-0.5">
+              <li>Constituição do Comitê de TI</li>
+              <li>Designação do Gestor de TI</li>
+              <li>Formalização da equipe de elaboração</li>
+              <li>Definição do cronograma de trabalho</li>
+            </ul>
+            <p class="mb-1"><strong>Produtos:</strong></p>
+            <ul class="list-disc list-inside space-y-0.5">
+              <li>Portaria de constituição do Comitê</li>
+              <li>Plano de trabalho aprovado</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="border border-[#EEEEEE] rounded-md">
+          <button onclick="togglePhase(this)" class="w-full flex justify-between items-center px-4 py-3 text-sm font-medium text-[#071d41] hover:bg-[#F8F8F8]">
+            <span>2. Diagnóstico</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 text-xs rounded-full bg-[#e6f5e8] text-[#168821]">Concluído</span>
+              <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </button>
+          <div class="hidden px-4 pb-3 text-sm text-[#666666]">
+            <p class="mb-2"><strong>Descrição:</strong> Levantamento da situação atual de TI, incluindo inventário de necessidades e análise de gaps.</p>
+            <p class="mb-1"><strong>Atividades:</strong></p>
+            <ul class="list-disc list-inside mb-2 space-y-0.5">
+              <li>Levantamento do inventário de ativos de TI</li>
+              <li>Análise de necessidades e demandas</li>
+              <li>Avaliação de maturidade de processos</li>
+              <li>Identificação de gaps de pessoal e recursos</li>
+            </ul>
+            <p class="mb-1"><strong>Produtos:</strong></p>
+            <ul class="list-disc list-inside space-y-0.5">
+              <li>Inventário de necessidades de TI</li>
+              <li>Relatório de diagnóstico</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="border border-[#EEEEEE] rounded-md">
+          <button onclick="togglePhase(this)" class="w-full flex justify-between items-center px-4 py-3 text-sm font-medium text-[#071d41] hover:bg-[#F8F8F8]">
+            <span>3. Planejamento</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 text-xs rounded-full bg-[#e6f5e8] text-[#168821]">Concluído</span>
+              <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </button>
+          <div class="hidden px-4 pb-3 text-sm text-[#666666]">
+            <p class="mb-2"><strong>Descrição:</strong> Elaboração do PDTIC com base no diagnóstico, definindo ações, metas e indicadores.</p>
+            <p class="mb-1"><strong>Atividades:</strong></p>
+            <ul class="list-disc list-inside mb-2 space-y-0.5">
+              <li>Elaboração do plano de ações de TI</li>
+              <li>Definição de metas e indicadores</li>
+              <li>Planejamento orçamentário</li>
+              <li>Análise de riscos e alternativas</li>
+            </ul>
+            <p class="mb-1"><strong>Produtos:</strong></p>
+            <ul class="list-disc list-inside space-y-0.5">
+              <li>PDTIC 2025-2028</li>
+              <li>Matriz de riscos</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="border border-[#EEEEEE] rounded-md">
+          <button onclick="togglePhase(this)" class="w-full flex justify-between items-center px-4 py-3 text-sm font-medium text-[#071d41] hover:bg-[#F8F8F8]">
+            <span>4. Aprovação</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 text-xs rounded-full bg-[#e6f5e8] text-[#168821]">Concluído</span>
+              <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </button>
+          <div class="hidden px-4 pb-3 text-sm text-[#666666]">
+            <p class="mb-2"><strong>Descrição:</strong> Submissão e aprovação formal do PDTIC pelas instâncias competentes.</p>
+            <p class="mb-1"><strong>Atividades:</strong></p>
+            <ul class="list-disc list-inside mb-2 space-y-0.5">
+              <li>Revisão pelo Comitê de TI</li>
+              <li>Apreciação pela Alta Administração</li>
+              <li>Homologação e publicação</li>
+            </ul>
+            <p class="mb-1"><strong>Produtos:</strong></p>
+            <ul class="list-disc list-inside space-y-0.5">
+              <li>PDTIC aprovado e publicado</li>
+              <li>Resolução de aprovação</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="border border-[#EEEEEE] rounded-md border-l-4 border-l-[#1351b4]">
+          <button onclick="togglePhase(this)" class="w-full flex justify-between items-center px-4 py-3 text-sm font-medium text-[#071d41] hover:bg-[#edf5ff]">
+            <span>5. Execução e Monitoramento</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 text-xs rounded-full bg-[#e8f5ff] text-[#005EA2]">Em andamento</span>
+              <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </button>
+          <div class="hidden px-4 pb-3 text-sm text-[#666666]">
+            <p class="mb-2"><strong>Descrição:</strong> Execução das ações previstas no PDTIC e monitoramento contínuo dos indicadores.</p>
+            <p class="mb-1"><strong>Atividades:</strong></p>
+            <ul class="list-disc list-inside mb-2 space-y-0.5">
+              <li>Execução das ações planejadas</li>
+              <li>Monitoramento de indicadores e metas</li>
+              <li>Elaboração dos relatórios RA-PDTIC</li>
+              <li>Gestão de riscos e contingências</li>
+              <li>Revisões periódicas de progresso</li>
+            </ul>
+            <p class="mb-1"><strong>Produtos:</strong></p>
+            <ul class="list-disc list-inside space-y-0.5">
+              <li>Relatórios RA-PDTIC trimestrais</li>
+              <li>Painel de indicadores atualizado</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Phase 6 -->
+        <div class="border border-[#EEEEEE] rounded-md">
+          <button onclick="togglePhase(this)" class="w-full flex justify-between items-center px-4 py-3 text-sm font-medium text-[#999999] hover:bg-[#F8F8F8]">
+            <span>6. Avaliação e Atualização</span>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 text-xs rounded-full bg-gray-100 text-[#999999]">Não iniciado</span>
+              <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </button>
+          <div class="hidden px-4 pb-3 text-sm text-[#666666]">
+            <p class="mb-2"><strong>Descrição:</strong> Avaliação final dos resultados do PDTIC e elaboração do próximo ciclo.</p>
+            <p class="mb-1"><strong>Atividades:</strong></p>
+            <ul class="list-disc list-inside mb-2 space-y-0.5">
+              <li>Avaliação dos resultados alcançados</li>
+              <li>Identificação de lições aprendidas</li>
+              <li>Proposta de atualização para o próximo ciclo</li>
+            </ul>
+            <p class="mb-1"><strong>Produtos:</strong></p>
+            <ul class="list-disc list-inside space-y-0.5">
+              <li>Relatório de avaliação final</li>
+              <li>Proposta de PDTIC para o próximo ciclo</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Key Milestones -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <h2 class="text-lg font-semibold text-[#071d41] mb-4">Marco Principais</h2>
+      <div class="relative ml-4">
+        <!-- Vertical line -->
+        <div class="absolute left-3 top-0 bottom-0 w-0.5 bg-[#CCCCCC]"></div>
+
+        <!-- Milestone 1 -->
+        <div class="relative flex items-start gap-4 pb-5">
+          <div class="w-6 h-6 rounded-full bg-[#e6f5e8]0 text-white flex items-center justify-center text-xs z-10 flex-shrink-0">&#10003;</div>
+          <div>
+            <p class="text-sm font-medium text-[#071d41]">Constituição Comitê TI</p>
+            <p class="text-xs text-[#999999]">15/01/2025</p>
+          </div>
+        </div>
+        <!-- Milestone 2 -->
+        <div class="relative flex items-start gap-4 pb-5">
+          <div class="w-6 h-6 rounded-full bg-[#e6f5e8]0 text-white flex items-center justify-center text-xs z-10 flex-shrink-0">&#10003;</div>
+          <div>
+            <p class="text-sm font-medium text-[#071d41]">Início Diagnóstico</p>
+            <p class="text-xs text-[#999999]">01/04/2025</p>
+          </div>
+        </div>
+        <!-- Milestone 3 -->
+        <div class="relative flex items-start gap-4 pb-5">
+          <div class="w-6 h-6 rounded-full bg-[#e6f5e8]0 text-white flex items-center justify-center text-xs z-10 flex-shrink-0">&#10003;</div>
+          <div>
+            <p class="text-sm font-medium text-[#071d41]">Entrega Inventário</p>
+            <p class="text-xs text-[#999999]">30/06/2025</p>
+          </div>
+        </div>
+        <!-- Milestone 4 -->
+        <div class="relative flex items-start gap-4 pb-5">
+          <div class="w-6 h-6 rounded-full bg-[#e6f5e8]0 text-white flex items-center justify-center text-xs z-10 flex-shrink-0">&#10003;</div>
+          <div>
+            <p class="text-sm font-medium text-[#071d41]">Início Elaboração PDTIC</p>
+            <p class="text-xs text-[#999999]">01/07/2025</p>
+          </div>
+        </div>
+        <!-- Milestone 5 -->
+        <div class="relative flex items-start gap-4 pb-5">
+          <div class="w-6 h-6 rounded-full bg-[#e6f5e8]0 text-white flex items-center justify-center text-xs z-10 flex-shrink-0">&#10003;</div>
+          <div>
+            <p class="text-sm font-medium text-[#071d41]">Aprovação PDTIC</p>
+            <p class="text-xs text-[#999999]">15/10/2025</p>
+          </div>
+        </div>
+        <!-- Milestone 6 - Current -->
+        <div class="relative flex items-start gap-4 pb-5">
+          <div class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs z-10 flex-shrink-0 pulse-current">
+            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="4"/></svg>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-[#071d41]">Início Execução</p>
+            <p class="text-xs text-[#2670e8]">01/01/2026</p>
+          </div>
+        </div>
+        <!-- Milestone 7 - Upcoming -->
+        <div class="relative flex items-start gap-4 pb-5">
+          <div class="w-6 h-6 rounded-full bg-yellow-400 text-white flex items-center justify-center text-xs z-10 flex-shrink-0">
+            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="4"/></svg>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-yellow-700">Entrega RA-PDTIC Q1</p>
+            <p class="text-xs text-[#FFCD07]">30/04/2026</p>
+          </div>
+        </div>
+        <!-- Milestone 8 - Future -->
+        <div class="relative flex items-start gap-4 pb-5">
+          <div class="w-6 h-6 rounded-full bg-gray-300 text-[#999999] flex items-center justify-center text-xs z-10 flex-shrink-0">
+            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="4"/></svg>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-[#999999]">RA-PDTIC Anual</p>
+            <p class="text-xs text-[#999999]">31/12/2026</p>
+          </div>
+        </div>
+        <!-- Milestone 9 -->
+        <div class="relative flex items-start gap-4 pb-5">
+          <div class="w-6 h-6 rounded-full bg-gray-300 text-[#999999] flex items-center justify-center text-xs z-10 flex-shrink-0">
+            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="4"/></svg>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-[#999999]">Início Avaliação</p>
+            <p class="text-xs text-[#999999]">30/09/2028</p>
+          </div>
+        </div>
+        <!-- Milestone 10 -->
+        <div class="relative flex items-start gap-4">
+          <div class="w-6 h-6 rounded-full bg-gray-300 text-[#999999] flex items-center justify-center text-xs z-10 flex-shrink-0">
+            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="4"/></svg>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-[#999999]">Término Ciclo</p>
+            <p class="text-xs text-[#999999]">31/12/2028</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Upcoming Deadlines -->
+    <div class="grid grid-cols-3 gap-4 mb-6">
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-4 border-l-4 border-l-[#E60000]">
+        <p class="text-sm font-medium text-[#071d41]">RA-PDTIC Q1/2026</p>
+        <p class="text-lg font-bold text-[#E60000] mt-1">8 dias</p>
+        <p class="text-xs text-[#999999] mt-1">Prazo: 30/04/2026</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-4 border-l-4 border-l-[#FFCD07]">
+        <p class="text-sm font-medium text-[#071d41]">Revisão Semestral</p>
+        <p class="text-lg font-bold text-[#92780c] mt-1">45 dias</p>
+        <p class="text-xs text-[#999999] mt-1">Prazo: 30/06/2026</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-4 border-l-4 border-l-[#168821]">
+        <p class="text-sm font-medium text-[#071d41]">RA-PDTIC Anual 2026</p>
+        <p class="text-lg font-bold text-[#168821] mt-1">253 dias</p>
+        <p class="text-xs text-[#999999] mt-1">Prazo: 31/12/2026</p>
+      </div>
+    </div>
+
+    <!-- SISP Guide Compliance -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6">
+      <h2 class="text-lg font-semibold text-[#071d41] mb-4">Conformidade com o Guia SISP</h2>
+      <div class="space-y-3">
+        <div class="flex items-center justify-between py-2 border-b border-[#EEEEEE]">
+          <span class="text-sm text-[#333333]">Institucionalização - Constituição de governança</span>
+          <span class="text-[#168821] text-lg">&#10003;</span>
+        </div>
+        <div class="flex items-center justify-between py-2 border-b border-[#EEEEEE]">
+          <span class="text-sm text-[#333333]">Diagnóstico - Inventário de necessidades</span>
+          <span class="text-[#168821] text-lg">&#10003;</span>
+        </div>
+        <div class="flex items-center justify-between py-2 border-b border-[#EEEEEE]">
+          <span class="text-sm text-[#333333]">Planejamento - Elaboração do PDTIC</span>
+          <span class="text-[#168821] text-lg">&#10003;</span>
+        </div>
+        <div class="flex items-center justify-between py-2 border-b border-[#EEEEEE]">
+          <span class="text-sm text-[#333333]">Aprovação - Homologação formal</span>
+          <span class="text-[#168821] text-lg">&#10003;</span>
+        </div>
+        <div class="flex items-center justify-between py-2 border-b border-[#EEEEEE]">
+          <span class="text-sm text-[#333333]">Execução - Relatórios de acompanhamento</span>
+          <span class="text-[#FFCD07] text-lg">&#9203;</span>
+        </div>
+        <div class="flex items-center justify-between py-2">
+          <span class="text-sm text-[#333333]">Avaliação - Relatório final e atualização</span>
+          <span class="text-[#CCCCCC] text-lg">&#9711;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex items-center gap-3 mb-6">
+      <a href="pdtic-anterior.html" class="px-5 py-2.5 bg-[#1351b4] hover:bg-[#155bcb] text-white text-sm font-medium rounded-md transition">Próxima Etapa <i class="fas fa-arrow-right ml-1"></i></a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-8 pt-4 border-t border-[#EEEEEE] text-center">
+      <p class="text-xs text-[#999999]">ANADEC - Agência Nacional de Desenvolvimento © 2026</p>
+    </footer>
+
+  </main>
+
+  <script>
+    function togglePhase(btn) {
+      const content = btn.nextElementSibling;
+      const svg = btn.querySelector('svg');
+      content.classList.toggle('hidden');
+      svg.classList.toggle('rotate-180');
+    }
+  </script>
+
+<script>
+function toggleSidebar() {
+  const sidebar = document.getElementById('govbr-sidebar');
+  sidebar.classList.toggle('-translate-x-full');
+  sidebar.classList.toggle('translate-x-0');
+}
+</script>
+
+<!-- Chat PDTIC Widget -->
+<div id="chatWidget" class="fixed bottom-6 right-6 z-50">
+  <!-- Chat Panel -->
+  <div id="chatPanel" class="hidden mb-4 w-80 bg-white rounded-xl shadow-2xl border border-[#EEEEEE] overflow-hidden flex flex-col" style="height:460px;">
+    <!-- Chat Header -->
+    <div class="bg-[#071d41] px-4 py-3 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-full bg-[#2670e8] flex items-center justify-center">
+          <i class="fas fa-robot text-white text-xs"></i>
+        </div>
+        <div>
+          <p class="text-white text-sm font-semibold">Assistente PDTIC</p>
+          <p class="text-[#adcdff] text-[10px]">Tire dúvidas sobre a elaboração</p>
+        </div>
+      </div>
+      <button onclick="toggleChat()" class="text-[#adcdff] hover:text-white transition">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <!-- Chat Messages -->
+    <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[#F8F8F8]">
+      <!-- Bot Welcome -->
+      <div class="flex items-start gap-2">
+        <div class="w-6 h-6 rounded-full bg-[#2670e8] flex items-center justify-center shrink-0 mt-0.5">
+          <i class="fas fa-robot text-white text-[8px]"></i>
+        </div>
+        <div class="bg-white rounded-lg rounded-tl-none px-3 py-2 shadow-sm max-w-[85%]">
+          <p class="text-sm text-[#333333]">Olá! Sou o assistente de elaboração do PDTIC. Posso ajudá-lo com dúvidas sobre o Guia do PDTIC, Portaria SISP 778/2021, requisitos do TCU e boas práticas de elaboração.</p>
+          <p class="text-[10px] text-[#999999] mt-1">Agora</p>
+        </div>
+      </div>
+      <!-- Quick Actions -->
+      <div class="flex flex-wrap gap-1.5 pl-8">
+        <button onclick="sendQuickMessage('Quais documentos são obrigatórios para o PDTIC?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Docs obrigatórios</button>
+        <button onclick="sendQuickMessage('Como fazer o alinhamento com o PEI?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Alinhamento PEI</button>
+        <button onclick="sendQuickMessage('Quais os pilares de conformidade do TCU?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Pilares TCU</button>
+        <button onclick="sendQuickMessage('Como elaborar o inventário de necessidades?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Inventário</button>
+      </div>
+    </div>
+    <!-- Chat Input -->
+    <div class="px-3 py-2.5 border-t border-[#EEEEEE] bg-white shrink-0">
+      <div class="flex items-center gap-2">
+        <input id="chatInput" type="text" placeholder="Digite sua dúvida..." class="flex-1 border border-[#CCCCCC] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1351b4] focus:ring-1 focus:ring-[#1351b4]" onkeydown="if(event.key==='Enter')sendMessage()">
+        <button onclick="sendMessage()" class="w-9 h-9 bg-[#1351b4] hover:bg-[#155bcb] text-white rounded-lg flex items-center justify-center transition shrink-0">
+          <i class="fas fa-paper-plane text-sm"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Floating Button -->
+  <button onclick="toggleChat()" id="chatBtn" class="w-14 h-14 bg-[#1351b4] hover:bg-[#155bcb] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-105 hover:shadow-xl ml-auto">
+    <i class="fas fa-comments text-xl" id="chatBtnIcon"></i>
+  </button>
+  <!-- Tooltip -->
+  <div id="chatTooltip" class="absolute bottom-16 right-0 mb-2 bg-[#071d41] text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 pointer-events-none transition-opacity">
+    Dúvidas sobre o PDTIC?
+    <div class="absolute -bottom-1 right-6 w-2 h-2 bg-[#071d41] transform rotate-45"></div>
+  </div>
+</div>
+
+<script>
+// Chat Widget Functions
+function toggleChat() {
+  const panel = document.getElementById('chatPanel');
+  const btnIcon = document.getElementById('chatBtnIcon');
+  const tooltip = document.getElementById('chatTooltip');
+  panel.classList.toggle('hidden');
+  if (panel.classList.contains('hidden')) {
+    btnIcon.className = 'fas fa-comments text-xl';
+  } else {
+    btnIcon.className = 'fas fa-times text-xl';
+    tooltip.style.opacity = '0';
+  }
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  appendMessage(msg, 'user');
+  input.value = '';
+  setTimeout(() => {
+    const response = getBotResponse(msg);
+    appendMessage(response, 'bot');
+  }, 600 + Math.random() * 800);
+}
+
+function sendQuickMessage(msg) {
+  appendMessage(msg, 'user');
+  setTimeout(() => {
+    const response = getBotResponse(msg);
+    appendMessage(response, 'bot');
+  }, 600 + Math.random() * 800);
+}
+
+function appendMessage(text, sender) {
+  const container = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  const now = new Date();
+  const time = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+  if (sender === 'user') {
+    div.className = 'flex justify-end';
+    div.innerHTML = '<div class="bg-[#1351b4] text-white rounded-lg rounded-tr-none px-3 py-2 max-w-[85%] shadow-sm"><p class="text-sm">' + text + '</p><p class="text-[10px] text-[#adcdff] mt-1 text-right">' + time + '</p></div>';
+  } else {
+    div.className = 'flex items-start gap-2';
+    div.innerHTML = '<div class="w-6 h-6 rounded-full bg-[#2670e8] flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-robot text-white text-[8px]"></i></div><div class="bg-white rounded-lg rounded-tl-none px-3 py-2 shadow-sm max-w-[85%]"><p class="text-sm text-[#333333]">' + text + '</p><p class="text-[10px] text-[#999999] mt-1">' + time + '</p></div>';
+  }
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function getBotResponse(msg) {
+  const m = msg.toLowerCase();
+  if (m.includes('obrigatório') || m.includes('documento')) {
+    return 'Segundo o Guia do PDTIC do SISP, os documentos obrigatórios são: PEI, EFGD, LDO, LOA, PCA, PDTIC anterior, inventário de necessidades e análise de riscos. A Portaria SISP 778/2021 detalha os requisitos mínimos em seu Anexo I.';
+  } else if (m.includes('alinhamento') || m.includes('pei')) {
+    return 'O alinhamento com o PEI deve ser demonstrado na Seção 3 do PDTIC, mapeando cada meta de TI a um objetivo estratégico do PEI. Use a ferramenta Mapa de Alinhamento para visualizar e validar essa vinculação.';
+  } else if (m.includes('tcu') || m.includes('pilar') || m.includes('conformidade')) {
+    return 'O TCU avalia o PDTIC em 5 pilares: (1) Alinhamento Estratégico, (2) Qualidade Técnica, (3) Governança de Dados, (4) Governança Ativa e (5) Documentação. Acesse o dashboard de Conformidade para ver o status de cada pilar.';
+  } else if (m.includes('inventário') || m.includes('necessidade')) {
+    return 'O inventário de necessidades deve seguir o modelo do Anexo IV da Portaria SISP 778/2021, contendo: descrição, categoria, prioridade, área solicitante, valor estimado e vinculação ao PEI. Use a página Inventário de Necessidades para cadastrar e gerenciar.';
+  } else if (m.includes('portaria') || m.includes('778') || m.includes('sisp')) {
+    return 'A Portaria SISP 778/2021 estabelece orientações para elaboração, revisão e acompanhamento do PDTIC. Os principais requisitos estão nos Anexos I (conteúdo mínimo), II (modelo de meta), III (modelo de ação) e IV (inventário de necessidades).';
+  } else if (m.includes('meta') || m.includes('ação')) {
+    return 'Cada meta do PDTIC deve conter: descrição, indicador, linha de base, meta final, prazo, responsável e valor estimado. As ações detalham as etapas para alcançar cada meta. Use o Assistente de Demandas para cadastrar novas demandas que alimentarão as metas.';
+  } else if (m.includes('risco')) {
+    return 'A gestão de riscos do PDTIC deve seguir a metodologia da Norma ABNT 31000. Os riscos devem ser identificados, avaliados (probabilidade x impacto) e tratados com planos de mitigação. Acesse a Matriz de Riscos para gerenciar.';
+  } else if (m.includes('orçamento') || m.includes('custo') || m.includes('valor')) {
+    return 'O orçamento do PDTIC deve ser compatível com o PCA e a LOA. Cada ação deve ter valor estimado e fonte de recurso identificada. O Acompanhamento Orçamentário permite monitorar a execução financeira em tempo real.';
+  } else if (m.includes('minuta') || m.includes('verificação')) {
+    return 'A verificação de conformidade da minuta compara seu PDTIC contra os documentos de referência (PEI, EFGD, Portaria 778, normativos TCU). Acesse Verificação da Minuta para submeter seu documento e receber o relatório de não conformidades.';
+  } else if (m.includes('cgd') || m.includes('governança')) {
+    return 'O Comitê de Governança de Dados (CGD) é responsável por supervisionar a execução do PDTIC. As atas das reuniões registram decisões sobre metas, ações e ajustes, formando a memória institucional da governança de TI.';
+  } else {
+    return 'Posso ajudá-lo com dúvidas sobre o Guia do PDTIC, Portaria SISP 778/2021, conformidade TCU, elaboração de metas e ações, inventário de necessidades, gestão de riscos e orçamento. Qual assunto interessa?';
+  }
+}
+
+// Auto-show tooltip after 5 seconds
+setTimeout(() => {
+  const tooltip = document.getElementById('chatTooltip');
+  const panel = document.getElementById('chatPanel');
+  if (panel.classList.contains('hidden')) {
+    tooltip.style.opacity = '1';
+    setTimeout(() => { tooltip.style.opacity = '0'; }, 4000);
+  }
+}, 5000);
+</script>
+
+</body>
+</html>

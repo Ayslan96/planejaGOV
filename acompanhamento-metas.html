@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDTIC | Metas e Ações do PDTIC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/govbr-core.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-[#F8F8F8] min-h-screen font-rawline">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#071d41]">
+    <div class="flex items-center justify-between px-6 h-14">
+      <div class="flex items-center gap-3">
+        <button onclick="toggleSidebar()" class="lg:hidden text-white p-1">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+        <a href="index.html" class="text-white font-bold text-lg tracking-wide">PDTIC</a>
+        <span class="text-[#81aefc] text-lg">|</span>
+        <span class="text-[#adcdff] text-sm">ANADEC</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[#adcdff] text-sm hidden sm:inline">Gestor TI</span>
+        <div class="w-8 h-8 rounded-full bg-[#2670e8] text-white flex items-center justify-center text-sm font-medium">GT</div>
+      </div>
+    </div>
+    <div class="bg-[#0c326f] h-8 flex items-center px-6">
+      <span class="text-[#adcdff] text-xs">Sistema de Gestão do PDTIC</span>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="govbr-sidebar" class="fixed top-[5.5rem] left-0 w-60 h-full bg-[#1351b4] z-40 overflow-y-auto transition-transform lg:translate-x-0 -translate-x-full">
+    <nav class="py-4">
+      <div class="px-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">Geral</span></div>
+      <a href="index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-home w-4 text-center"></i> Painel Geral</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">1. Preparação</span></div>
+      <a href="documentos-referencia.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-book w-4 text-center"></i> Docs de Referência e Normativos</a>
+      <a href="linha-tempo.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-clock w-4 text-center"></i> Ciclo de Vida do PDTIC</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">2. Diagnóstico</span></div>
+      <a href="pdtic-anterior.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-history w-4 text-center"></i> PDTIC Anterior — Lições Aprendidas</a>
+      <a href="inventario-necessidades.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-clipboard-list w-4 text-center"></i> Inventário de Necessidades de TIC</a>
+      <a href="analise-swot.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-th-large w-4 text-center"></i> Diagnóstico Estratégico (SWOT)</a>
+      <a href="matriz-riscos.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-exclamation-triangle w-4 text-center"></i> Gestão de Riscos de TIC</a>
+      <a href="mapa-cobertura-efgd.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-compass w-4 text-center"></i> Cobertura da EFGD</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">3. Planejamento</span></div>
+      <a href="principios-criterios.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-balance-scale w-4 text-center"></i> Princípios e Critérios de Priorização</a>
+      <a href="assistente-demandas.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-plus-circle w-4 text-center"></i> Oficialização de Demandas</a>
+      <a href="matriz-rastreabilidade.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-sitemap w-4 text-center"></i> Rastreabilidade Estratégica (MRE)</a>
+      <a href="mapa-alinhamento.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-project-diagram w-4 text-center"></i> Alinhamento Estratégico ao PEI</a>
+      <a href="checklist-elaboracao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-tasks w-4 text-center"></i> Conteúdo Mínimo (Checklist)</a>
+      <a href="verificacao-minuta.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-search-plus w-4 text-center"></i> Verificação de Conformidade</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">4. Acompanhamento</span></div>
+      <a href="painel-execucao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-chart-line w-4 text-center"></i> Painel de Execução do PDTIC</a>
+      <a href="acompanhamento-metas.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition bg-[#155bcb] font-medium"><i class="fas fa-bullseye w-4 text-center"></i> Metas e Ações do PDTIC</a>
+      <a href="plano-orcamentario.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-coins w-4 text-center"></i> Execução Orçamentária</a>
+      <a href="capacidade-execucao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-users-cog w-4 text-center"></i> Capacidade Institucional</a>
+      <a href="dashboard-conformidade.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-shield-alt w-4 text-center"></i> Conformidade e Auditoria</a>
+      <a href="atas-cgd.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-gavel w-4 text-center"></i> Governança — Atas do CGD</a>
+      <a href="relatorios-acompanhamento.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-file-alt w-4 text-center"></i> Relatório de Acompanhamento</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-60 pt-24 px-6 pb-6 bg-[#F8F8F8] min-h-screen">
+
+    <!-- Breadcrumb -->
+    <nav class="mb-4">
+      <ol class="flex items-center gap-1 text-xs text-[#999999]">
+        <li><a href="index.html" class="hover:text-[#1351b4]">Início</a></li>
+        <li><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
+        <li>Acompanhamento</li>
+        <li><i class="fas fa-chevron-right text-[8px] mx-1"></i></li>
+        <li class="text-[#071d41] font-medium">Plano de Metas e Ações (PMAR)</li>
+      </ol>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-[#071d41]">Plano de Metas e Ações Rastreável (PMAR)</h1>
+      <p class="text-[#999999] text-sm mt-1">Acompanhamento de metas (MT-XXX) e ações (AC-XXX.X) com indicadores</p>
+    </div>
+
+    <!-- Rastreabilidade Banner -->
+    <div class="bg-[#edf5ff] border border-[#1351b4]/20 rounded-lg px-4 py-3 mb-6 flex items-start gap-3">
+      <i class="fas fa-link text-[#1351b4] mt-0.5"></i>
+      <div>
+        <p class="text-sm font-medium text-[#071d41]">Rastreabilidade Habilitada</p>
+        <p class="text-xs text-[#666666] mt-0.5">Cada meta/ação é vinculada a uma necessidade (IN-XXX), estratégia (AE-XXX) e cobertura EFGD. O TCU verifica se todas as necessidades priorizadas possuem metas e ações correspondentes.</p>
+      </div>
+    </div>
+
+    <!-- Rastreabilidade Quick Links -->
+    <div class="bg-[#edf5ff] border border-[#1351b4]/10 rounded-lg px-4 py-2.5 mb-6 flex items-center gap-4 flex-wrap">
+      <span class="text-xs font-medium text-[#1351b4]"><i class="fas fa-link mr-1"></i> Rastreabilidade:</span>
+      <a href="matriz-rastreabilidade.html" class="text-xs text-[#1351b4] hover:underline font-medium"><i class="fas fa-sitemap mr-1"></i> MRE</a>
+      <a href="inventario-necessidades.html" class="text-xs text-[#1351b4] hover:underline font-medium"><i class="fas fa-clipboard-list mr-1"></i> Inventário de Necessidades</a>
+      <a href="mapa-alinhamento.html" class="text-xs text-[#1351b4] hover:underline font-medium"><i class="fas fa-project-diagram mr-1"></i> Alinhamento Estratégico</a>
+    </div>
+
+    <!-- KPI Summary Cards -->
+    <div class="grid grid-cols-4 gap-4 mb-6">
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5">
+        <div class="flex items-center justify-between">
+          <p class="text-xs text-[#999999] uppercase tracking-wider font-medium">Metas Atingidas</p>
+          <i class="fas fa-check-circle text-[#168821] text-lg"></i>
+        </div>
+        <p class="text-3xl font-bold text-[#168821] mt-2">8/20</p>
+        <div class="flex items-center gap-2 mt-2">
+          <div class="flex-1 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#168821] rounded-full h-2" style="width:40%"></div></div>
+          <span class="text-xs text-[#168821] font-medium">40%</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5">
+        <div class="flex items-center justify-between">
+          <p class="text-xs text-[#999999] uppercase tracking-wider font-medium">Ações Em Andamento</p>
+          <i class="fas fa-spinner text-[#1351b4] text-lg"></i>
+        </div>
+        <p class="text-3xl font-bold text-[#1351b4] mt-2">18</p>
+        <div class="flex items-center gap-2 mt-2">
+          <div class="flex-1 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#1351b4] rounded-full h-2" style="width:45%"></div></div>
+          <span class="text-xs text-[#1351b4] font-medium">45%</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5">
+        <div class="flex items-center justify-between">
+          <p class="text-xs text-[#999999] uppercase tracking-wider font-medium">Ações em Atraso</p>
+          <i class="fas fa-exclamation-circle text-[#E60000] text-lg"></i>
+        </div>
+        <p class="text-3xl font-bold text-[#E60000] mt-2">5</p>
+        <div class="flex items-center gap-2 mt-2">
+          <div class="flex-1 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#E60000] rounded-full h-2" style="width:12%"></div></div>
+          <span class="text-xs text-[#E60000] font-medium">12%</span>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5">
+        <div class="flex items-center justify-between">
+          <p class="text-xs text-[#999999] uppercase tracking-wider font-medium">Execução Orçamentária</p>
+          <i class="fas fa-coins text-[#FFCD07] text-lg"></i>
+        </div>
+        <p class="text-3xl font-bold text-[#FFCD07] mt-2">62%</p>
+        <div class="flex items-center gap-2 mt-2">
+          <div class="flex-1 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#FFCD07] rounded-full h-2" style="width:62%"></div></div>
+          <span class="text-xs text-[#92780c] font-medium">62%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alerts Section -->
+    <div class="space-y-3 mb-6">
+      <div class="bg-[#fde8e8] border-l-4 border-l-[#E60000] rounded-lg p-4 flex items-center gap-3">
+        <i class="fas fa-exclamation-triangle text-[#E60000]"></i>
+        <span class="text-[#E60000] text-sm font-medium">5 ações com prazo vencido requerem atualização imediata</span>
+      </div>
+      <div class="bg-[#fff9db] border-l-4 border-l-[#FFCD07] rounded-lg p-4 flex items-center gap-3">
+        <i class="fas fa-exclamation-triangle text-[#92780c]"></i>
+        <span class="text-[#92780c] text-sm font-medium">3 metas com indicadores abaixo do esperado no trimestre</span>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5 mb-6">
+      <div class="flex items-end gap-4 flex-wrap">
+        <div class="flex-1 min-w-[180px]">
+          <label class="block text-xs font-medium text-[#666666] mb-1.5">Eixo PEI</label>
+          <select class="w-full border border-[#CCCCCC] rounded px-3 py-2 text-sm text-[#333333] focus:outline-none focus:border-[#1351b4] bg-white">
+            <option>Todos</option>
+            <option>OE1 Modernização</option>
+            <option>OE2 Transparência</option>
+            <option>OE3 Eficiência</option>
+            <option>OE4 Inovação</option>
+          </select>
+        </div>
+        <div class="flex-1 min-w-[180px]">
+          <label class="block text-xs font-medium text-[#666666] mb-1.5">Status</label>
+          <select class="w-full border border-[#CCCCCC] rounded px-3 py-2 text-sm text-[#333333] focus:outline-none focus:border-[#1351b4] bg-white">
+            <option>Todos</option>
+            <option>Em andamento</option>
+            <option>Concluída</option>
+            <option>Atrasada</option>
+            <option>Não iniciada</option>
+          </select>
+        </div>
+        <div class="flex-1 min-w-[180px]">
+          <label class="block text-xs font-medium text-[#666666] mb-1.5">Responsável</label>
+          <select class="w-full border border-[#CCCCCC] rounded px-3 py-2 text-sm text-[#333333] focus:outline-none focus:border-[#1351b4] bg-white">
+            <option>Todos</option>
+            <option>Coord. TI</option>
+            <option>Ger. Planejamento</option>
+            <option>Ger. Projetos</option>
+            <option>Dir. Administrativa</option>
+          </select>
+        </div>
+        <div>
+          <button class="bg-[#1351b4] text-white text-sm font-medium px-6 py-2 rounded hover:bg-[#0c326f] transition flex items-center gap-2">
+            <i class="fas fa-filter text-xs"></i> Filtrar
+          </button>
+        </div>
+        <div>
+          <button onclick="simulateAIGeneration('metas')" class="bg-gradient-to-r from-[#1351b4] to-[#7c3aed] hover:from-[#155bcb] hover:to-[#8b5cf6] text-white px-4 py-1.5 rounded-md text-sm font-medium flex items-center gap-1.5"><i class="fas fa-robot text-xs"></i> Gerar com IA</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Goals Table -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5 mb-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-semibold text-[#333333]">Metas do PDTIC</h3>
+        <span class="text-xs text-[#999999]">5 metas · 23 ações</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-[#EEEEEE]">
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase w-8"></th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">ID Meta</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">Meta</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">Necessidade (IN)</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">Estratégia (AE)</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">Cobertura EFGD</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">Indicador</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">Meta 2026</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">%</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">RH (FTE)</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">Orçamento (R$ mil)</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">Status</th>
+              <th class="text-left py-2.5 px-3 text-xs font-medium text-[#999999] uppercase">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- MT-001 -->
+            <tr class="border-b border-[#EEEEEE] bg-[#fff9db] cursor-pointer hover:bg-[#fff3c4] transition" onclick="toggleRow('m1')">
+              <td class="py-2.5 px-3"><i id="icon-m1" class="fas fa-chevron-right text-[#999999] text-xs transition-transform"></i></td>
+              <td class="py-2.5 px-3"><a href="inventario-necessidades.html" class="font-mono text-xs font-bold text-[#1351b4] hover:underline">MT-001</a></td>
+              <td class="py-2.5 px-3 text-[#333333] font-medium">Modernizar infraestrutura de TI</td>
+              <td class="py-2.5 px-3"><a href="inventario-necessidades.html" class="font-mono text-xs text-[#1351b4] hover:underline">IN-006</a></td>
+              <td class="py-2.5 px-3"><a href="mapa-alinhamento.html" class="font-mono text-xs text-[#1351b4] hover:underline">AE-002</a></td>
+              <td class="py-2.5 px-3"><span class="text-xs bg-[#edf5ff] text-[#1351b4] px-1.5 py-0.5 rounded">Eixo 2</span></td>
+              <td class="py-2.5 px-3 text-[#666666]">Índice de modernização</td>
+              <td class="py-2.5 px-3 text-[#666666]">80%</td>
+              <td class="py-2.5 px-3 font-bold text-[#92780c]">62%</td>
+              <td class="py-2.5 px-3 text-[#666666]">2</td>
+              <td class="py-2.5 px-3 text-[#666666]">530</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 text-xs font-medium rounded-full bg-[#fff9db] text-[#92780c]">Parcial</span></td>
+              <td class="py-2.5 px-3 text-[#1351b4] font-medium">5 ações</td>
+            </tr>
+            <!-- MT-001 Expanded Actions -->
+            <tr id="row-m1" class="hidden">
+              <td colspan="14" class="p-0">
+                <div class="bg-[#f8f8fc] border-b border-[#EEEEEE] px-6 py-3">
+                  <table class="w-full text-sm">
+                    <thead>
+                      <tr class="border-b border-[#ddd]">
+                        <th class="text-left py-2 px-3 text-xs font-medium text-[#999999] uppercase">ID</th>
+                        <th class="text-left py-2 px-3 text-xs font-medium text-[#999999] uppercase">Ação</th>
+                        <th class="text-left py-2 px-3 text-xs font-medium text-[#999999] uppercase">Status</th>
+                        <th class="text-left py-2 px-3 text-xs font-medium text-[#999999] uppercase w-32">% Execução</th>
+                        <th class="text-left py-2 px-3 text-xs font-medium text-[#999999] uppercase">Responsável</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="border-b border-[#eee]">
+                        <td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">AC-001.1</td>
+                        <td class="py-2 px-3 text-[#333333]">Substituir servidores legados</td>
+                        <td class="py-2 px-3"><span class="px-2 py-0.5 text-xs font-medium rounded-full bg-blue-100 text-[#071d41]">Em andamento</span></td>
+                        <td class="py-2 px-3">
+                          <div class="flex items-center gap-2">
+                            <div class="flex-1 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#1351b4] rounded-full h-2" style="width:75%"></div></div>
+                            <span class="text-xs text-[#666666] w-8">75%</span>
+                          </div>
+                        </td>
+                        <td class="py-2 px-3 text-[#666666]">Coord. TI</td>
+                      </tr>
+                      <tr class="border-b border-[#eee]">
+                        <td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">AC-001.2</td>
+                        <td class="py-2 px-3 text-[#333333]">Implementar cloud híbrida</td>
+                        <td class="py-2 px-3"><span class="px-2 py-0.5 text-xs font-medium rounded-full bg-blue-100 text-[#071d41]">Em andamento</span></td>
+                        <td class="py-2 px-3">
+                          <div class="flex items-center gap-2">
+                            <div class="flex-1 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#1351b4] rounded-full h-2" style="width:50%"></div></div>
+                            <span class="text-xs text-[#666666] w-8">50%</span>
+                          </div>
+                        </td>
+                        <td class="py-2 px-3 text-[#666666]">Ger. Infra</td>
+                      </tr>
+                      <tr class="border-b border-[#eee]">
+                        <td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">AC-001.3</td>
+                        <td class="py-2 px-3 text-[#333333]">Atualizar rede LAN</td>
+                        <td class="py-2 px-3"><span class="px-2 py-0.5 text-xs font-medium rounded-full bg-[#fde8e8] text-[#E60000]">Atrasada</span></td>
+                        <td class="py-2 px-3">
+                          <div class="flex items-center gap-2">
+                            <div class="flex-1 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#E60000] rounded-full h-2" style="width:40%"></div></div>
+                            <span class="text-xs text-[#666666] w-8">40%</span>
+                          </div>
+                        </td>
+                        <td class="py-2 px-3 text-[#666666]">Ger. Infra</td>
+                      </tr>
+                      <tr class="border-b border-[#eee]">
+                        <td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">AC-001.4</td>
+                        <td class="py-2 px-3 text-[#333333]">Implementar monitoramento</td>
+                        <td class="py-2 px-3"><span class="px-2 py-0.5 text-xs font-medium rounded-full bg-[#e6f5e8] text-[#168821]">Concluída</span></td>
+                        <td class="py-2 px-3">
+                          <div class="flex items-center gap-2">
+                            <div class="flex-1 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#168821] rounded-full h-2" style="width:100%"></div></div>
+                            <span class="text-xs text-[#666666] w-8">100%</span>
+                          </div>
+                        </td>
+                        <td class="py-2 px-3 text-[#666666]">Coord. TI</td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">AC-001.5</td>
+                        <td class="py-2 px-3 text-[#333333]">Virtualizar ambiente</td>
+                        <td class="py-2 px-3"><span class="px-2 py-0.5 text-xs font-medium rounded-full bg-gray-100 text-[#333333]">Não iniciada</span></td>
+                        <td class="py-2 px-3">
+                          <div class="flex items-center gap-2">
+                            <div class="flex-1 bg-[#CCCCCC] rounded-full h-2"><div class="bg-gray-400 rounded-full h-2" style="width:0%"></div></div>
+                            <span class="text-xs text-[#666666] w-8">0%</span>
+                          </div>
+                        </td>
+                        <td class="py-2 px-3 text-[#666666]">Ger. Infra</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+
+            <!-- MT-002 -->
+            <tr class="border-b border-[#EEEEEE] bg-[#e6f5e8] cursor-pointer hover:bg-[#d4edda] transition" onclick="toggleRow('m2')">
+              <td class="py-2.5 px-3"><i id="icon-m2" class="fas fa-chevron-right text-[#999999] text-xs transition-transform"></i></td>
+              <td class="py-2.5 px-3"><a href="inventario-necessidades.html" class="font-mono text-xs font-bold text-[#1351b4] hover:underline">MT-002</a></td>
+              <td class="py-2.5 px-3 text-[#333333] font-medium">Ampliar transparência e acesso à informação</td>
+              <td class="py-2.5 px-3"><a href="inventario-necessidades.html" class="font-mono text-xs text-[#1351b4] hover:underline">IN-003</a> / <a href="inventario-necessidades.html" class="font-mono text-xs text-[#1351b4] hover:underline">IN-008</a></td>
+              <td class="py-2.5 px-3"><a href="mapa-alinhamento.html" class="font-mono text-xs text-[#1351b4] hover:underline">AE-004</a></td>
+              <td class="py-2.5 px-3"><span class="text-xs bg-[#edf5ff] text-[#1351b4] px-1.5 py-0.5 rounded">Eixo 2</span></td>
+              <td class="py-2.5 px-3 text-[#666666]">Dados abertos publicados</td>
+              <td class="py-2.5 px-3 text-[#666666]">70%</td>
+              <td class="py-2.5 px-3 font-bold text-[#168821]">107%</td>
+              <td class="py-2.5 px-3 text-[#666666]">1</td>
+              <td class="py-2.5 px-3 text-[#666666]">520</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 text-xs font-medium rounded-full bg-[#e6f5e8] text-[#168821]">Atingida</span></td>
+              <td class="py-2.5 px-3 text-[#1351b4] font-medium">4 ações</td>
+            </tr>
+            <!-- MT-002 Expanded Actions -->
+            <tr id="row-m2" class="hidden">
+              <td colspan="14" class="p-0">
+                <div class="bg-[#f8f8fc] border-b border-[#EEEEEE] px-6 py-3">
+                  <p class="text-xs text-[#999999] italic">Ações: <span class="font-mono font-bold text-[#1351b4]">AC-002.1</span> a <span class="font-mono font-bold text-[#1351b4]">AC-002.4</span> — 4 ações vinculadas. Clique para ver detalhes completos no RA-PDTIC.</p>
+                </div>
+              </td>
+            </tr>
+
+            <!-- MT-003 -->
+            <tr class="border-b border-[#EEEEEE] bg-[#fff9db] cursor-pointer hover:bg-[#fff3c4] transition" onclick="toggleRow('m3')">
+              <td class="py-2.5 px-3"><i id="icon-m3" class="fas fa-chevron-right text-[#999999] text-xs transition-transform"></i></td>
+              <td class="py-2.5 px-3"><a href="inventario-necessidades.html" class="font-mono text-xs font-bold text-[#1351b4] hover:underline">MT-003</a></td>
+              <td class="py-2.5 px-3 text-[#333333] font-medium">Otimizar processos internos</td>
+              <td class="py-2.5 px-3"><a href="inventario-necessidades.html" class="font-mono text-xs text-[#1351b4] hover:underline">IN-001</a></td>
+              <td class="py-2.5 px-3"><a href="mapa-alinhamento.html" class="font-mono text-xs text-[#1351b4] hover:underline">AE-001</a></td>
+              <td class="py-2.5 px-3"><span class="text-xs bg-[#ede9fe] text-[#5b21b6] px-1.5 py-0.5 rounded">Eixo 3</span></td>
+              <td class="py-2.5 px-3 text-[#666666]">Processos automatizados</td>
+              <td class="py-2.5 px-3 text-[#666666]">60%</td>
+              <td class="py-2.5 px-3 font-bold text-[#92780c]">63%</td>
+              <td class="py-2.5 px-3 text-[#666666]">4</td>
+              <td class="py-2.5 px-3 text-[#666666]">1.550</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 text-xs font-medium rounded-full bg-[#fff9db] text-[#92780c]">Parcial</span></td>
+              <td class="py-2.5 px-3 text-[#1351b4] font-medium">6 ações</td>
+            </tr>
+            <!-- MT-003 Expanded Actions -->
+            <tr id="row-m3" class="hidden">
+              <td colspan="14" class="p-0">
+                <div class="bg-[#f8f8fc] border-b border-[#EEEEEE] px-6 py-3">
+                  <p class="text-xs text-[#999999] italic">Ações: <span class="font-mono font-bold text-[#1351b4]">AC-003.1</span> a <span class="font-mono font-bold text-[#1351b4]">AC-003.6</span> — 6 ações vinculadas. Clique para ver detalhes completos no RA-PDTIC.</p>
+                </div>
+              </td>
+            </tr>
+
+            <!-- MT-004 -->
+            <tr class="border-b border-[#EEEEEE] bg-[#fde8e8] cursor-pointer hover:bg-[#f9d0d0] transition" onclick="toggleRow('m4')">
+              <td class="py-2.5 px-3"><i id="icon-m4" class="fas fa-chevron-right text-[#999999] text-xs transition-transform"></i></td>
+              <td class="py-2.5 px-3"><a href="inventario-necessidades.html" class="font-mono text-xs font-bold text-[#1351b4] hover:underline">MT-004</a></td>
+              <td class="py-2.5 px-3 text-[#333333] font-medium">Promover inovação tecnológica</td>
+              <td class="py-2.5 px-3"><a href="inventario-necessidades.html" class="font-mono text-xs text-[#1351b4] hover:underline">IN-007</a></td>
+              <td class="py-2.5 px-3"><a href="mapa-alinhamento.html" class="font-mono text-xs text-[#1351b4] hover:underline">AE-007</a></td>
+              <td class="py-2.5 px-3"><span class="text-xs bg-[#ede9fe] text-[#5b21b6] px-1.5 py-0.5 rounded">Eixo 3</span></td>
+              <td class="py-2.5 px-3 text-[#666666]">Projetos inovadores</td>
+              <td class="py-2.5 px-3 text-[#666666]">50%</td>
+              <td class="py-2.5 px-3 font-bold text-[#E60000]">40%</td>
+              <td class="py-2.5 px-3 text-[#666666]">1</td>
+              <td class="py-2.5 px-3 text-[#666666]">280</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 text-xs font-medium rounded-full bg-[#fde8e8] text-[#E60000]">Abaixo</span></td>
+              <td class="py-2.5 px-3 text-[#1351b4] font-medium">3 ações</td>
+            </tr>
+            <!-- MT-004 Expanded Actions -->
+            <tr id="row-m4" class="hidden">
+              <td colspan="14" class="p-0">
+                <div class="bg-[#f8f8fc] border-b border-[#EEEEEE] px-6 py-3">
+                  <p class="text-xs text-[#999999] italic">Ações: <span class="font-mono font-bold text-[#1351b4]">AC-004.1</span> a <span class="font-mono font-bold text-[#1351b4]">AC-004.3</span> — 3 ações vinculadas. Clique para ver detalhes completos no RA-PDTIC.</p>
+                </div>
+              </td>
+            </tr>
+
+            <!-- MT-005 -->
+            <tr class="bg-[#fde8e8] cursor-pointer hover:bg-[#f9d0d0] transition" onclick="toggleRow('m5')">
+              <td class="py-2.5 px-3"><i id="icon-m5" class="fas fa-chevron-right text-[#999999] text-xs transition-transform"></i></td>
+              <td class="py-2.5 px-3"><a href="inventario-necessidades.html" class="font-mono text-xs font-bold text-[#1351b4] hover:underline">MT-005</a></td>
+              <td class="py-2.5 px-3 text-[#333333] font-medium">Fortalecer governança de dados</td>
+              <td class="py-2.5 px-3"><a href="inventario-necessidades.html" class="font-mono text-xs text-[#1351b4] hover:underline">IN-002</a> / <a href="inventario-necessidades.html" class="font-mono text-xs text-[#1351b4] hover:underline">IN-005</a></td>
+              <td class="py-2.5 px-3"><a href="mapa-alinhamento.html" class="font-mono text-xs text-[#1351b4] hover:underline">AE-003</a></td>
+              <td class="py-2.5 px-3"><span class="text-xs bg-[#dcfce7] text-[#166534] px-1.5 py-0.5 rounded">Eixo 1</span></td>
+              <td class="py-2.5 px-3 text-[#666666]">Catálogo de dados</td>
+              <td class="py-2.5 px-3 text-[#666666]">90%</td>
+              <td class="py-2.5 px-3 font-bold text-[#E60000]">50%</td>
+              <td class="py-2.5 px-3 text-[#666666]">3</td>
+              <td class="py-2.5 px-3 text-[#666666]">2.500</td>
+              <td class="py-2.5 px-3"><span class="px-2 py-0.5 text-xs font-medium rounded-full bg-[#fde8e8] text-[#E60000]">Abaixo</span></td>
+              <td class="py-2.5 px-3 text-[#1351b4] font-medium">5 ações</td>
+            </tr>
+            <!-- MT-005 Expanded Actions -->
+            <tr id="row-m5" class="hidden">
+              <td colspan="14" class="p-0">
+                <div class="bg-[#f8f8fc] border-b border-[#EEEEEE] px-6 py-3">
+                  <p class="text-xs text-[#999999] italic">Ações: <span class="font-mono font-bold text-[#1351b4]">AC-005.1</span> a <span class="font-mono font-bold text-[#1351b4]">AC-005.5</span> — 5 ações vinculadas. Clique para ver detalhes completos no RA-PDTIC.</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="grid grid-cols-2 gap-6 mb-6">
+      <!-- Line Chart: Evolution of Goals -->
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5">
+        <h3 class="text-sm font-semibold text-[#333333] mb-4">Evolução das Metas por Eixo PEI</h3>
+        <canvas id="chartEvolution" height="220"></canvas>
+      </div>
+
+      <!-- Semaphore Status -->
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5">
+        <h3 class="text-sm font-semibold text-[#333333] mb-4">Semáforo de Status das Metas</h3>
+        <div class="space-y-4">
+          <!-- Green -->
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-3 h-3 rounded-full bg-[#168821] shrink-0"></span>
+              <span class="text-xs font-medium text-[#168821] uppercase tracking-wider">Verde — Atingida (≥80%)</span>
+            </div>
+            <div class="ml-5 flex items-center gap-2">
+              <span class="px-3 py-1.5 bg-[#e6f5e8] rounded text-sm font-medium text-[#168821]">M2</span>
+              <span class="text-xs text-[#999999]">Transparência — 107%</span>
+            </div>
+          </div>
+          <!-- Yellow -->
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-3 h-3 rounded-full bg-[#FFCD07] shrink-0"></span>
+              <span class="text-xs font-medium text-[#92780c] uppercase tracking-wider">Amarelo — Parcial (50-79%)</span>
+            </div>
+            <div class="ml-5 flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 bg-[#fff9db] rounded text-sm font-medium text-[#92780c]">M1</span>
+              <span class="text-xs text-[#999999] self-center">Infraestrutura — 62%</span>
+              <span class="px-3 py-1.5 bg-[#fff9db] rounded text-sm font-medium text-[#92780c] ml-3">M3</span>
+              <span class="text-xs text-[#999999] self-center">Processos — 63%</span>
+            </div>
+          </div>
+          <!-- Red -->
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-3 h-3 rounded-full bg-[#E60000] shrink-0"></span>
+              <span class="text-xs font-medium text-[#E60000] uppercase tracking-wider">Vermelho — Abaixo (&lt;50%)</span>
+            </div>
+            <div class="ml-5 flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 bg-[#fde8e8] rounded text-sm font-medium text-[#E60000]">M4</span>
+              <span class="text-xs text-[#999999] self-center">Inovação — 40%</span>
+              <span class="px-3 py-1.5 bg-[#fde8e8] rounded text-sm font-medium text-[#E60000] ml-3">M5</span>
+              <span class="text-xs text-[#999999] self-center">Governança — 50%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Update Modal (displayed as a card) -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5 mb-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-semibold text-[#333333]">Atualização de Ação</h3>
+        <span class="px-2 py-0.5 text-xs font-medium rounded-full bg-[#fde8e8] text-[#E60000]">Atrasada</span>
+      </div>
+      <div class="bg-[#f8f8fc] rounded-lg border border-[#EEEEEE] p-5">
+        <div class="grid grid-cols-2 gap-6">
+          <!-- Left Column -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-medium text-[#666666] mb-1.5">Ação</label>
+              <div class="px-3 py-2 bg-white border border-[#CCCCCC] rounded text-sm text-[#333333]">
+                <span class="font-medium">AC-001.3</span> Atualizar rede LAN
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#666666] mb-1.5">Status</label>
+              <select class="w-full border border-[#CCCCCC] rounded px-3 py-2 text-sm text-[#333333] focus:outline-none focus:border-[#1351b4] bg-white">
+                <option>Em andamento</option>
+                <option>Concluída</option>
+                <option selected>Atrasada</option>
+                <option>Cancelada</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#666666] mb-1.5">% Execução</label>
+              <div class="flex items-center gap-3">
+                <input type="range" min="0" max="100" value="40" class="flex-1 h-2 accent-[#1351b4]" id="rangeExecucao" oninput="document.getElementById('rangeValue').textContent = this.value + '%'">
+                <span id="rangeValue" class="text-sm font-bold text-[#1351b4] w-10 text-right">40%</span>
+              </div>
+            </div>
+          </div>
+          <!-- Right Column -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-medium text-[#666666] mb-1.5">Observações</label>
+              <textarea class="w-full border border-[#CCCCCC] rounded px-3 py-2 text-sm text-[#333333] focus:outline-none focus:border-[#1351b4] resize-none" rows="3" placeholder="Descreva o andamento, impedimentos e próximos passos..."></textarea>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-[#666666] mb-1.5">Evidências</label>
+              <div class="border-2 border-dashed border-[#CCCCCC] rounded-lg p-4 text-center hover:border-[#1351b4] transition cursor-pointer">
+                <i class="fas fa-cloud-upload-alt text-[#CCCCCC] text-2xl mb-1"></i>
+                <p class="text-xs text-[#999999]">Arraste arquivos ou clique para selecionar</p>
+                <p class="text-[10px] text-[#CCCCCC] mt-1">PDF, DOCX, XLSX, imagens (máx. 10MB)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-6 pt-4 border-t border-[#EEEEEE]">
+          <button class="px-5 py-2 text-sm text-[#666666] border border-[#CCCCCC] rounded hover:bg-[#f3f4f6] transition">Cancelar</button>
+          <button class="px-5 py-2 text-sm text-white bg-[#1351b4] rounded hover:bg-[#0c326f] transition font-medium flex items-center gap-2">
+            <i class="fas fa-save text-xs"></i> Atualizar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex items-center gap-3 mb-6">
+      <a href="plano-orcamentario.html" class="px-5 py-2.5 bg-[#1351b4] hover:bg-[#155bcb] text-white text-sm font-medium rounded-md transition">Próxima Etapa <i class="fas fa-arrow-right ml-1"></i></a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-8 pt-4 border-t border-[#EEEEEE] text-center">
+      <p class="text-xs text-[#999999]">ANADEC - Agência Nacional de Desenvolvimento © 2026</p>
+    </footer>
+
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    // Toggle expandable rows
+    function toggleRow(id) {
+      const row = document.getElementById('row-' + id);
+      const icon = document.getElementById('icon-' + id);
+      if (row.classList.contains('hidden')) {
+        row.classList.remove('hidden');
+        icon.style.transform = 'rotate(90deg)';
+      } else {
+        row.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Line Chart - Evolution of Goals by PEI Axis
+    new Chart(document.getElementById('chartEvolution'), {
+      type: 'line',
+      data: {
+        labels: ['Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026'],
+        datasets: [
+          {
+            label: 'OE1 Modernização',
+            data: [30, 42, 50, 55, 62],
+            borderColor: '#1351b4',
+            backgroundColor: 'rgba(19, 81, 180, 0.05)',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#1351b4',
+            borderWidth: 2
+          },
+          {
+            label: 'OE2 Transparência',
+            data: [25, 40, 55, 68, 75],
+            borderColor: '#168821',
+            backgroundColor: 'rgba(22, 136, 33, 0.05)',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#168821',
+            borderWidth: 2
+          },
+          {
+            label: 'OE3 Eficiência',
+            data: [20, 28, 32, 35, 38],
+            borderColor: '#FFCD07',
+            backgroundColor: 'rgba(255, 205, 7, 0.05)',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#FFCD07',
+            borderWidth: 2
+          },
+          {
+            label: 'OE4 Inovação',
+            data: [10, 12, 15, 18, 20],
+            borderColor: '#E60000',
+            backgroundColor: 'rgba(230, 0, 0, 0.05)',
+            fill: false,
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: '#E60000',
+            borderWidth: 2
+          },
+          {
+            label: 'Meta',
+            data: [80, 80, 80, 80, 80],
+            borderColor: '#333333',
+            borderDash: [8, 4],
+            fill: false,
+            tension: 0,
+            pointRadius: 0,
+            borderWidth: 1.5
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { padding: 12, usePointStyle: true, pointStyle: 'circle', font: { size: 11 } }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            grid: { color: '#f3f4f6' },
+            ticks: { callback: v => v + '%' }
+          },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+
+    // Toggle sidebar for mobile
+    function simulateAIGeneration(artifact) {
+      var names = {inventario: 'Inventario de Necessidades', swot: 'Analise SWOT', riscos: 'Matriz de Riscos', metas: 'Plano de Metas e Acoes'};
+      alert('IA: Analisando documentos de referencia e PDTIC anterior para pre-preencher o ' + names[artifact] + '.\n\nEm producao, a IA le os normativos (FN-001 a FN-012), o PDTIC anterior e o PEI/EFGD para gerar sugestoes de itens rastreaveis que a equipe pode validar e editar.');
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('govbr-sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+      sidebar.classList.toggle('translate-x-0');
+    }
+  </script>
+
+
+<!-- Chat PDTIC Widget -->
+<div id="chatWidget" class="fixed bottom-6 right-6 z-50">
+  <!-- Chat Panel -->
+  <div id="chatPanel" class="hidden mb-4 w-80 bg-white rounded-xl shadow-2xl border border-[#EEEEEE] overflow-hidden flex flex-col" style="height:460px;">
+    <!-- Chat Header -->
+    <div class="bg-[#071d41] px-4 py-3 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-full bg-[#2670e8] flex items-center justify-center">
+          <i class="fas fa-robot text-white text-xs"></i>
+        </div>
+        <div>
+          <p class="text-white text-sm font-semibold">Assistente PDTIC</p>
+          <p class="text-[#adcdff] text-[10px]">Tire dúvidas sobre a elaboração</p>
+        </div>
+      </div>
+      <button onclick="toggleChat()" class="text-[#adcdff] hover:text-white transition">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <!-- Chat Messages -->
+    <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[#F8F8F8]">
+      <!-- Bot Welcome -->
+      <div class="flex items-start gap-2">
+        <div class="w-6 h-6 rounded-full bg-[#2670e8] flex items-center justify-center shrink-0 mt-0.5">
+          <i class="fas fa-robot text-white text-[8px]"></i>
+        </div>
+        <div class="bg-white rounded-lg rounded-tl-none px-3 py-2 shadow-sm max-w-[85%]">
+          <p class="text-sm text-[#333333]">Olá! Sou o assistente de elaboração do PDTIC. Posso ajudá-lo com dúvidas sobre o Guia do PDTIC, Portaria SISP 778/2021, requisitos do TCU e boas práticas de elaboração.</p>
+          <p class="text-[10px] text-[#999999] mt-1">Agora</p>
+        </div>
+      </div>
+      <!-- Quick Actions -->
+      <div class="flex flex-wrap gap-1.5 pl-8">
+        <button onclick="sendQuickMessage('Quais documentos são obrigatórios para o PDTIC?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Docs obrigatórios</button>
+        <button onclick="sendQuickMessage('Como fazer o alinhamento com o PEI?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Alinhamento PEI</button>
+        <button onclick="sendQuickMessage('Quais os pilares de conformidade do TCU?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Pilares TCU</button>
+        <button onclick="sendQuickMessage('Como elaborar o inventário de necessidades?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Inventário</button>
+      </div>
+    </div>
+    <!-- Chat Input -->
+    <div class="px-3 py-2.5 border-t border-[#EEEEEE] bg-white shrink-0">
+      <div class="flex items-center gap-2">
+        <input id="chatInput" type="text" placeholder="Digite sua dúvida..." class="flex-1 border border-[#CCCCCC] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1351b4] focus:ring-1 focus:ring-[#1351b4]" onkeydown="if(event.key==='Enter')sendMessage()">
+        <button onclick="sendMessage()" class="w-9 h-9 bg-[#1351b4] hover:bg-[#155bcb] text-white rounded-lg flex items-center justify-center transition shrink-0">
+          <i class="fas fa-paper-plane text-sm"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Floating Button -->
+  <button onclick="toggleChat()" id="chatBtn" class="w-14 h-14 bg-[#1351b4] hover:bg-[#155bcb] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-105 hover:shadow-xl ml-auto">
+    <i class="fas fa-comments text-xl" id="chatBtnIcon"></i>
+  </button>
+  <!-- Tooltip -->
+  <div id="chatTooltip" class="absolute bottom-16 right-0 mb-2 bg-[#071d41] text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 pointer-events-none transition-opacity">
+    Dúvidas sobre o PDTIC?
+    <div class="absolute -bottom-1 right-6 w-2 h-2 bg-[#071d41] transform rotate-45"></div>
+  </div>
+</div>
+
+<script>
+// Chat Widget Functions
+function toggleChat() {
+  const panel = document.getElementById('chatPanel');
+  const btnIcon = document.getElementById('chatBtnIcon');
+  const tooltip = document.getElementById('chatTooltip');
+  panel.classList.toggle('hidden');
+  if (panel.classList.contains('hidden')) {
+    btnIcon.className = 'fas fa-comments text-xl';
+  } else {
+    btnIcon.className = 'fas fa-times text-xl';
+    tooltip.style.opacity = '0';
+  }
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  appendMessage(msg, 'user');
+  input.value = '';
+  setTimeout(() => {
+    const response = getBotResponse(msg);
+    appendMessage(response, 'bot');
+  }, 600 + Math.random() * 800);
+}
+
+function sendQuickMessage(msg) {
+  appendMessage(msg, 'user');
+  setTimeout(() => {
+    const response = getBotResponse(msg);
+    appendMessage(response, 'bot');
+  }, 600 + Math.random() * 800);
+}
+
+function appendMessage(text, sender) {
+  const container = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  const now = new Date();
+  const time = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+  if (sender === 'user') {
+    div.className = 'flex justify-end';
+    div.innerHTML = '<div class="bg-[#1351b4] text-white rounded-lg rounded-tr-none px-3 py-2 max-w-[85%] shadow-sm"><p class="text-sm">' + text + '</p><p class="text-[10px] text-[#adcdff] mt-1 text-right">' + time + '</p></div>';
+  } else {
+    div.className = 'flex items-start gap-2';
+    div.innerHTML = '<div class="w-6 h-6 rounded-full bg-[#2670e8] flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-robot text-white text-[8px]"></i></div><div class="bg-white rounded-lg rounded-tl-none px-3 py-2 shadow-sm max-w-[85%]"><p class="text-sm text-[#333333]">' + text + '</p><p class="text-[10px] text-[#999999] mt-1">' + time + '</p></div>';
+  }
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function getBotResponse(msg) {
+  const m = msg.toLowerCase();
+  if (m.includes('obrigatório') || m.includes('documento')) {
+    return 'Segundo o Guia do PDTIC do SISP, os documentos obrigatórios são: PEI, EFGD, LDO, LOA, PCA, PDTIC anterior, inventário de necessidades e análise de riscos. A Portaria SISP 778/2021 detalha os requisitos mínimos em seu Anexo I.';
+  } else if (m.includes('alinhamento') || m.includes('pei')) {
+    return 'O alinhamento com o PEI deve ser demonstrado na Seção 3 do PDTIC, mapeando cada meta de TI a um objetivo estratégico do PEI. Use a ferramenta Mapa de Alinhamento para visualizar e validar essa vinculação.';
+  } else if (m.includes('tcu') || m.includes('pilar') || m.includes('conformidade')) {
+    return 'O TCU avalia o PDTIC em 5 pilares: (1) Alinhamento Estratégico, (2) Qualidade Técnica, (3) Governança de Dados, (4) Governança Ativa e (5) Documentação. Acesse o dashboard de Conformidade para ver o status de cada pilar.';
+  } else if (m.includes('inventário') || m.includes('necessidade')) {
+    return 'O inventário de necessidades deve seguir o modelo do Anexo IV da Portaria SISP 778/2021, contendo: descrição, categoria, prioridade, área solicitante, valor estimado e vinculação ao PEI. Use a página Inventário de Necessidades para cadastrar e gerenciar.';
+  } else if (m.includes('portaria') || m.includes('778') || m.includes('sisp')) {
+    return 'A Portaria SISP 778/2021 estabelece orientações para elaboração, revisão e acompanhamento do PDTIC. Os principais requisitos estão nos Anexos I (conteúdo mínimo), II (modelo de meta), III (modelo de ação) e IV (inventário de necessidades).';
+  } else if (m.includes('meta') || m.includes('ação')) {
+    return 'Cada meta do PDTIC deve conter: descrição, indicador, linha de base, meta final, prazo, responsável e valor estimado. As ações detalham as etapas para alcançar cada meta. Use o Assistente de Demandas para cadastrar novas demandas que alimentarão as metas.';
+  } else if (m.includes('risco')) {
+    return 'A gestão de riscos do PDTIC deve seguir a metodologia da Norma ABNT 31000. Os riscos devem ser identificados, avaliados (probabilidade x impacto) e tratados com planos de mitigação. Acesse a Matriz de Riscos para gerenciar.';
+  } else if (m.includes('orçamento') || m.includes('custo') || m.includes('valor')) {
+    return 'O orçamento do PDTIC deve ser compatível com o PCA e a LOA. Cada ação deve ter valor estimado e fonte de recurso identificada. O Acompanhamento Orçamentário permite monitorar a execução financeira em tempo real.';
+  } else if (m.includes('minuta') || m.includes('verificação')) {
+    return 'A verificação de conformidade da minuta compara seu PDTIC contra os documentos de referência (PEI, EFGD, Portaria 778, normativos TCU). Acesse Verificação da Minuta para submeter seu documento e receber o relatório de não conformidades.';
+  } else if (m.includes('cgd') || m.includes('governança')) {
+    return 'O Comitê de Governança de Dados (CGD) é responsável por supervisionar a execução do PDTIC. As atas das reuniões registram decisões sobre metas, ações e ajustes, formando a memória institucional da governança de TI.';
+  } else {
+    return 'Posso ajudá-lo com dúvidas sobre o Guia do PDTIC, Portaria SISP 778/2021, conformidade TCU, elaboração de metas e ações, inventário de necessidades, gestão de riscos e orçamento. Qual assunto interessa?';
+  }
+}
+
+// Auto-show tooltip after 5 seconds
+setTimeout(() => {
+  const tooltip = document.getElementById('chatTooltip');
+  const panel = document.getElementById('chatPanel');
+  if (panel.classList.contains('hidden')) {
+    tooltip.style.opacity = '1';
+    setTimeout(() => { tooltip.style.opacity = '0'; }, 4000);
+  }
+}, 5000);
+</script>
+
+</body>
+</html>

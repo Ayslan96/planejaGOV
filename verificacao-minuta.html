@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDTIC | Verificação de Conformidade</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/govbr-core.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-[#F8F8F8] min-h-screen font-rawline">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#071d41]">
+    <div class="flex items-center justify-between px-6 h-14">
+      <div class="flex items-center gap-3">
+        <button onclick="toggleSidebar()" class="lg:hidden text-white p-1"><i class="fas fa-bars text-lg"></i></button>
+        <a href="index.html" class="text-white font-bold text-lg tracking-wide">PDTIC</a>
+        <span class="text-[#81aefc] text-lg">|</span>
+        <span class="text-[#adcdff] text-sm">ANADEC</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[#adcdff] text-sm hidden sm:inline">Gestor TI</span>
+        <div class="w-8 h-8 rounded-full bg-[#2670e8] text-white flex items-center justify-center text-sm font-medium">GT</div>
+      </div>
+    </div>
+    <div class="bg-[#0c326f] h-8 flex items-center px-6">
+      <span class="text-[#adcdff] text-xs">Sistema de Gestão do PDTIC</span>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="govbr-sidebar" class="fixed top-[5.5rem] left-0 w-60 h-full bg-[#1351b4] z-40 overflow-y-auto transition-transform lg:translate-x-0 -translate-x-full">
+    <nav class="py-4">
+      <div class="px-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">Geral</span></div>
+      <a href="index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-home w-4 text-center"></i> Painel Geral</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">1. Preparação</span></div>
+      <a href="documentos-referencia.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-book w-4 text-center"></i> Docs de Referência e Normativos</a>
+      <a href="linha-tempo.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-clock w-4 text-center"></i> Ciclo de Vida do PDTIC</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">2. Diagnóstico</span></div>
+      <a href="pdtic-anterior.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-history w-4 text-center"></i> PDTIC Anterior — Lições Aprendidas</a>
+      <a href="inventario-necessidades.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-clipboard-list w-4 text-center"></i> Inventário de Necessidades de TIC</a>
+      <a href="analise-swot.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-th-large w-4 text-center"></i> Diagnóstico Estratégico (SWOT)</a>
+      <a href="matriz-riscos.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-exclamation-triangle w-4 text-center"></i> Gestão de Riscos de TIC</a>
+      <a href="mapa-cobertura-efgd.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-compass w-4 text-center"></i> Cobertura da EFGD</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">3. Planejamento</span></div>
+      <a href="principios-criterios.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-balance-scale w-4 text-center"></i> Princípios e Critérios de Priorização</a>
+      <a href="assistente-demandas.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-plus-circle w-4 text-center"></i> Oficialização de Demandas</a>
+      <a href="matriz-rastreabilidade.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-sitemap w-4 text-center"></i> Rastreabilidade Estratégica (MRE)</a>
+      <a href="mapa-alinhamento.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-project-diagram w-4 text-center"></i> Alinhamento Estratégico ao PEI</a>
+      <a href="checklist-elaboracao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-tasks w-4 text-center"></i> Conteúdo Mínimo (Checklist)</a>
+      <a href="verificacao-minuta.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition bg-[#155bcb] font-medium"><i class="fas fa-search-plus w-4 text-center"></i> Verificação de Conformidade</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">4. Acompanhamento</span></div>
+      <a href="painel-execucao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-chart-line w-4 text-center"></i> Painel de Execução do PDTIC</a>
+      <a href="acompanhamento-metas.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-bullseye w-4 text-center"></i> Metas e Ações do PDTIC</a>
+      <a href="plano-orcamentario.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-coins w-4 text-center"></i> Execução Orçamentária</a>
+      <a href="capacidade-execucao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-users-cog w-4 text-center"></i> Capacidade Institucional</a>
+      <a href="dashboard-conformidade.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-shield-alt w-4 text-center"></i> Conformidade e Auditoria</a>
+      <a href="atas-cgd.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-gavel w-4 text-center"></i> Governança — Atas do CGD</a>
+      <a href="relatorios-acompanhamento.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-file-alt w-4 text-center"></i> Relatório de Acompanhamento</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-60 pt-24 px-6 pb-6 bg-[#F8F8F8] min-h-screen">
+
+    <!-- Page Title + Breadcrumb -->
+    <div class="mb-6">
+      <nav class="text-xs text-[#999999] mb-2">
+        <a href="index.html" class="hover:text-[#1351b4]">Início</a>
+        <span class="mx-1">/</span>
+        <span class="text-[#1351b4]">Planejamento</span>
+        <span class="mx-1">/</span>
+        <span class="text-[#333333]">Verificação da Minuta</span>
+      </nav>
+      <h1 class="text-2xl font-bold text-[#071d41]">Verificação de Conformidade da Minuta</h1>
+      <p class="text-[#666666] text-sm mt-1">Verificação de conformidade da minuta do PDTIC (V-01 a V-10)</p>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5 mb-6">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-bold text-[#071d41]">Etapa de Elaboração</h3>
+        <span class="text-xs text-[#1351b4] font-medium">Etapa 13 de 20</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+      </div>
+      <p class="text-xs text-[#666666] mt-2">Documentos de Referência → PDTIC Anterior → Inventário → SWOT → Riscos → Checklist → <strong class="text-[#1351b4]">Verificação</strong> → Demandas</p>
+    </div>
+
+    <!-- Upload Minuta Section -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <h3 class="text-sm font-bold text-[#071d41] mb-4"><i class="fas fa-file-upload mr-2 text-[#1351b4]"></i>Enviar Minuta do PDTIC</h3>
+      <div class="border-2 border-dashed border-[#1351b4] rounded-lg p-8 text-center bg-[#edf5ff] hover:bg-[#d4e5ff] transition cursor-pointer" onclick="startVerification()">
+        <i class="fas fa-file-alt text-5xl text-[#1351b4] mb-3"></i>
+        <p class="text-sm font-medium text-[#071d41] mb-1">Clique para enviar a minuta do PDTIC</p>
+        <p class="text-xs text-[#666666] mb-4">Formatos aceitos: PDF, DOCX, ODT (máx. 100MB)</p>
+        <button class="px-6 py-2.5 bg-[#1351b4] hover:bg-[#155bcb] text-white text-sm font-medium rounded-md transition">
+          <i class="fas fa-upload mr-2"></i>Selecionar Arquivo e Verificar
+        </button>
+      </div>
+      <!-- Uploaded file reference -->
+      <div class="mt-4 p-3 rounded-lg border border-[#EEEEEE] bg-[#F8F8F8]">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-[#fde8e8] text-[#E60000] flex items-center justify-center shrink-0">
+            <i class="fas fa-file-pdf text-lg"></i>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-[#333333]">PDTIC_ANADEC_2025-2028_Minuta_v3.pdf</p>
+            <p class="text-xs text-[#999999]">Enviado em 20/04/2026 às 14:32 • 8.7 MB • 142 páginas</p>
+          </div>
+          <span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2 py-0.5 rounded-full">Processado</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overall Conformity Score -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+      <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 flex flex-col items-center justify-center">
+        <svg width="160" height="160" viewBox="0 0 160 160">
+          <circle cx="80" cy="80" r="68" fill="none" stroke="#e5e7eb" stroke-width="10"/>
+          <circle cx="80" cy="80" r="68" fill="none" stroke="#FFCD07" stroke-width="10"
+            stroke-dasharray="427" stroke-dashoffset="128" stroke-linecap="round"
+            transform="rotate(-90 80 80)"/>
+          <text x="80" y="72" text-anchor="middle" fill="#92780c" font-size="32" font-weight="bold">70%</text>
+          <text x="80" y="96" text-anchor="middle" fill="#666666" font-size="12">Conformidade</text>
+        </svg>
+        <p class="text-sm font-medium text-[#92780c] mt-3">Conformidade Parcial</p>
+        <p class="text-xs text-[#999999] mt-1">28 de 40 critérios atendidos</p>
+      </div>
+
+      <!-- Verification Summary -->
+      <div class="col-span-2 bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6">
+        <h3 class="text-sm font-bold text-[#071d41] mb-4">Resumo da Verificação</h3>
+        <div class="grid grid-cols-3 gap-4 mb-4">
+          <div class="text-center p-3 rounded-lg bg-[#e6f5e8]">
+            <p class="text-2xl font-bold text-[#168821]">18</p>
+            <p class="text-xs text-[#168821]">Conformes</p>
+          </div>
+          <div class="text-center p-3 rounded-lg bg-[#fff9db]">
+            <p class="text-2xl font-bold text-[#92780c]">10</p>
+            <p class="text-xs text-[#92780c]">Parciais</p>
+          </div>
+          <div class="text-center p-3 rounded-lg bg-[#fde8e8]">
+            <p class="text-2xl font-bold text-[#E60000]">12</p>
+            <p class="text-xs text-[#E60000]">Não Conformes</p>
+          </div>
+        </div>
+        <!-- Chart -->
+        <canvas id="chartConformity" height="120"></canvas>
+      </div>
+    </div>
+
+    <!-- Verificacoes Automaticas V-01 a V-10 -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-bold text-[#071d41]"><i class="fas fa-clipboard-check mr-2 text-[#1351b4]"></i>Verificacoes Automaticas de Rastreabilidade (V-01 a V-10)</h3>
+        <button class="px-3 py-1.5 text-xs bg-[#1351b4] text-white hover:bg-[#155bcb] rounded transition font-medium">Executar Verificacoes</button>
+      </div>
+      <p class="text-xs text-[#666666] mb-4">Verificacoes estruturais, semanticas e integradas habilitadas pelos documentos rastreaveis do PDTIC Compass</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-[#edf5ff] border-b-2 border-[#1351b4]">
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">ID</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Verificacao</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Camada</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Docs</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Criterio TCU</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-[#EEEEEE]"><td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">V-01</td><td class="py-2 px-3 text-xs">Toda estrategia (AE) possui necessidade vinculada (IN)</td><td class="py-2 px-3"><span class="bg-[#edf5ff] text-[#1351b4] text-xs px-1.5 py-0.5 rounded">Estrutural</span></td><td class="py-2 px-3 text-xs">MAE+INR</td><td class="py-2 px-3 text-xs">Alinhamento Estrategico</td><td class="py-2 px-3"><span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2 py-0.5 rounded-full">Aprovado</span></td></tr>
+            <tr class="border-b border-[#EEEEEE]"><td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">V-02</td><td class="py-2 px-3 text-xs">Toda necessidade priorizada possui meta e acao</td><td class="py-2 px-3"><span class="bg-[#edf5ff] text-[#1351b4] text-xs px-1.5 py-0.5 rounded">Estrutural</span></td><td class="py-2 px-3 text-xs">INR+PMAR</td><td class="py-2 px-3 text-xs">Qualidade Tecnica</td><td class="py-2 px-3"><span class="bg-[#fff9db] text-[#92780c] text-xs font-medium px-2 py-0.5 rounded-full">Parcial</span></td></tr>
+            <tr class="border-b border-[#EEEEEE]"><td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">V-03</td><td class="py-2 px-3 text-xs">Toda acao possui orcamento vinculado no POR</td><td class="py-2 px-3"><span class="bg-[#edf5ff] text-[#1351b4] text-xs px-1.5 py-0.5 rounded">Estrutural</span></td><td class="py-2 px-3 text-xs">PMAR+POR</td><td class="py-2 px-3 text-xs">Governanca Ativa</td><td class="py-2 px-3"><span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2 py-0.5 rounded-full">Aprovado</span></td></tr>
+            <tr class="border-b border-[#EEEEEE]"><td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">V-04</td><td class="py-2 px-3 text-xs">Toda fraqueza do SWOT gerou necessidade no INR</td><td class="py-2 px-3"><span class="bg-[#edf5ff] text-[#1351b4] text-xs px-1.5 py-0.5 rounded">Estrutural</span></td><td class="py-2 px-3 text-xs">SWOT+INR</td><td class="py-2 px-3 text-xs">Qualidade Tecnica</td><td class="py-2 px-3"><span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2 py-0.5 rounded-full">Aprovado</span></td></tr>
+            <tr class="border-b border-[#EEEEEE]"><td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">V-05</td><td class="py-2 px-3 text-xs">Toda ameaca do SWOT foi tratada no PGR</td><td class="py-2 px-3"><span class="bg-[#edf5ff] text-[#1351b4] text-xs px-1.5 py-0.5 rounded">Estrutural</span></td><td class="py-2 px-3 text-xs">SWOT+PGR</td><td class="py-2 px-3 text-xs">Governanca Ativa</td><td class="py-2 px-3"><span class="bg-[#fde8e8] text-[#E60000] text-xs font-medium px-2 py-0.5 rounded-full">Falha</span></td></tr>
+            <tr class="border-b border-[#EEEEEE]"><td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">V-06</td><td class="py-2 px-3 text-xs">Todos os eixos da EFGD estao cobertos</td><td class="py-2 px-3"><span class="bg-[#e6f5e8] text-[#168821] text-xs px-1.5 py-0.5 rounded">Integrada</span></td><td class="py-2 px-3 text-xs">EFGD+PMAR</td><td class="py-2 px-3 text-xs">Alinhamento Estrategico</td><td class="py-2 px-3"><span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2 py-0.5 rounded-full">Aprovado</span></td></tr>
+            <tr class="border-b border-[#EEEEEE]"><td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">V-07</td><td class="py-2 px-3 text-xs">Programas PPA possuem cobertura no Mapa PPA/PEI</td><td class="py-2 px-3"><span class="bg-[#e6f5e8] text-[#168821] text-xs px-1.5 py-0.5 rounded">Integrada</span></td><td class="py-2 px-3 text-xs">PPA/PEI+MFN</td><td class="py-2 px-3 text-xs">Alinhamento Estrategico</td><td class="py-2 px-3"><span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2 py-0.5 rounded-full">Aprovado</span></td></tr>
+            <tr class="border-b border-[#EEEEEE]"><td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">V-08</td><td class="py-2 px-3 text-xs">Orcamento do POR nao excede a dotacao da LOA</td><td class="py-2 px-3"><span class="bg-[#fff9db] text-[#92780c] text-xs px-1.5 py-0.5 rounded">Semantica</span></td><td class="py-2 px-3 text-xs">POR+MFN</td><td class="py-2 px-3 text-xs">Governanca Ativa</td><td class="py-2 px-3"><span class="bg-[#e6f5e8] text-[#168821] text-xs font-medium px-2 py-0.5 rounded-full">Aprovado</span></td></tr>
+            <tr class="border-b border-[#EEEEEE]"><td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">V-09</td><td class="py-2 px-3 text-xs">Conteudo descritivo de metas coerente com necessidades (LLM)</td><td class="py-2 px-3"><span class="bg-[#fff9db] text-[#92780c] text-xs px-1.5 py-0.5 rounded">Semantica</span></td><td class="py-2 px-3 text-xs">PMAR+INR</td><td class="py-2 px-3 text-xs">Qualidade Tecnica</td><td class="py-2 px-3"><span class="bg-[#e8f5ff] text-[#005EA2] text-xs font-medium px-2 py-0.5 rounded-full">Pendente IA</span></td></tr>
+            <tr><td class="py-2 px-3 font-mono text-xs font-bold text-[#1351b4]">V-10</td><td class="py-2 px-3 text-xs">Acoes de governanca de dados atendem Dec. 10.332 (LLM)</td><td class="py-2 px-3"><span class="bg-[#fff9db] text-[#92780c] text-xs px-1.5 py-0.5 rounded">Semantica</span></td><td class="py-2 px-3 text-xs">PMAR+MFN</td><td class="py-2 px-3 text-xs">Governanca de Dados</td><td class="py-2 px-3"><span class="bg-[#e8f5ff] text-[#005EA2] text-xs font-medium px-2 py-0.5 rounded-full">Pendente IA</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 flex items-center gap-4 text-xs">
+        <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-[#168821]"></span> Aprovado (6)</span>
+        <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-[#92780c]"></span> Parcial (1)</span>
+        <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-[#E60000]"></span> Falha (1)</span>
+        <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-[#005EA2]"></span> Pendente IA (2)</span>
+      </div>
+    </div>
+
+    <!-- Detailed Verification by Reference Document -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-bold text-[#071d41]"><i class="fas fa-clipboard-check mr-2 text-[#1351b4]"></i>Verificação por Documento de Referência</h3>
+        <div class="flex gap-2">
+          <button class="px-3 py-1.5 text-xs border border-[#1351b4] text-[#1351b4] hover:bg-[#edf5ff] rounded transition font-medium">Exportar Relatório</button>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-[#edf5ff] border-b-2 border-[#1351b4]">
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Documento de Referência</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Critérios</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Conformes</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Parciais</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Não Conformes</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Índice</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-[#333333] font-medium">Portaria SISP 778/2023</td>
+              <td class="py-2.5 px-3 text-[#666666]">10</td>
+              <td class="py-2.5 px-3"><span class="text-[#168821] font-medium">6</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#92780c] font-medium">3</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#E60000] font-medium">1</span></td>
+              <td class="py-2.5 px-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-16 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#FFCD07] h-2 rounded-full" style="width:75%"></div></div>
+                  <span class="text-xs font-medium text-[#92780c]">75%</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-[#333333] font-medium">IN SISP 04/2014</td>
+              <td class="py-2.5 px-3 text-[#666666]">8</td>
+              <td class="py-2.5 px-3"><span class="text-[#168821] font-medium">4</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#92780c] font-medium">2</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#E60000] font-medium">2</span></td>
+              <td class="py-2.5 px-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-16 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#FFCD07] h-2 rounded-full" style="width:62%"></div></div>
+                  <span class="text-xs font-medium text-[#92780c]">62%</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-[#333333] font-medium">EFGD - Decreto 10.332/2020</td>
+              <td class="py-2.5 px-3 text-[#666666]">7</td>
+              <td class="py-2.5 px-3"><span class="text-[#168821] font-medium">4</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#92780c] font-medium">2</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#E60000] font-medium">1</span></td>
+              <td class="py-2.5 px-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-16 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#FFCD07] h-2 rounded-full" style="width:71%"></div></div>
+                  <span class="text-xs font-medium text-[#92780c]">71%</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-[#333333] font-medium">PEI 2024-2027</td>
+              <td class="py-2.5 px-3 text-[#666666]">6</td>
+              <td class="py-2.5 px-3"><span class="text-[#168821] font-medium">2</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#92780c] font-medium">2</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#E60000] font-medium">2</span></td>
+              <td class="py-2.5 px-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-16 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#E60000] h-2 rounded-full" style="width:50%"></div></div>
+                  <span class="text-xs font-medium text-[#E60000]">50%</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-[#333333] font-medium">Achados TCU</td>
+              <td class="py-2.5 px-3 text-[#666666]">5</td>
+              <td class="py-2.5 px-3"><span class="text-[#168821] font-medium">1</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#92780c] font-medium">1</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#E60000] font-medium">3</span></td>
+              <td class="py-2.5 px-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-16 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#E60000] h-2 rounded-full" style="width:30%"></div></div>
+                  <span class="text-xs font-medium text-[#E60000]">30%</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-[#333333] font-medium">PCA Vigente</td>
+              <td class="py-2.5 px-3 text-[#666666]">4</td>
+              <td class="py-2.5 px-3"><span class="text-[#168821] font-medium">1</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#92780c] font-medium">0</span></td>
+              <td class="py-2.5 px-3"><span class="text-[#E60000] font-medium">3</span></td>
+              <td class="py-2.5 px-3">
+                <div class="flex items-center gap-2">
+                  <div class="w-16 bg-[#CCCCCC] rounded-full h-2"><div class="bg-[#E60000] h-2 rounded-full" style="width:25%"></div></div>
+                  <span class="text-xs font-medium text-[#E60000]">25%</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Detailed Findings -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-bold text-[#071d41]"><i class="fas fa-list-alt mr-2 text-[#E60000]"></i>Não Conformidades Identificadas</h3>
+        <div class="flex gap-2">
+          <select class="border border-[#CCCCCC] rounded-md px-3 py-1.5 text-xs bg-white focus:outline-none focus:border-[#1351b4]">
+            <option>Todos os documentos</option>
+            <option>Portaria SISP 778</option>
+            <option>IN SISP 04/2014</option>
+            <option>EFGD</option>
+            <option>PEI 2024-2027</option>
+            <option>Achados TCU</option>
+          </select>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <!-- Finding 1 -->
+        <div class="border-l-4 border-l-[#E60000] bg-[#F8F8F8] rounded-r-lg p-4">
+          <div class="flex items-start justify-between mb-2">
+            <div>
+              <span class="bg-[#fde8e8] text-[#E60000] text-xs font-medium px-2 py-0.5 rounded mr-2">Crítico</span>
+              <span class="text-xs text-[#999999]">Ref: Portaria SISP 778, Item 3.2</span>
+            </div>
+            <span class="text-xs text-[#999999]">Pág. 45</span>
+          </div>
+          <p class="text-sm font-medium text-[#333333] mb-1">Ausência de vinculamento entre ações e objetivos estratégicos do PEI</p>
+          <p class="text-xs text-[#666666] mb-2">A minuta apresenta ações sem correspondência direta com os objetivos estratégicos institucionais. A Portaria 778 exige que todas as ações do PDTIC estejam alinhadas ao PEI.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-medium text-[#071d41]">Recomendação:</span>
+            <span class="text-xs text-[#666666]">Mapear cada ação ao respectivo objetivo do PEI 2024-2027, conforme estrutura do Anexo II da Portaria.</span>
+          </div>
+        </div>
+        <!-- Finding 2 -->
+        <div class="border-l-4 border-l-[#E60000] bg-[#F8F8F8] rounded-r-lg p-4">
+          <div class="flex items-start justify-between mb-2">
+            <div>
+              <span class="bg-[#fde8e8] text-[#E60000] text-xs font-medium px-2 py-0.5 rounded mr-2">Crítico</span>
+              <span class="text-xs text-[#999999]">Ref: Achado TCU 2024, Recomendação 3</span>
+            </div>
+            <span class="text-xs text-[#999999]">Pág. 78</span>
+          </div>
+          <p class="text-sm font-medium text-[#333333] mb-1">Inventário de necessidades desatualizado e sem método de priorização</p>
+          <p class="text-xs text-[#666666] mb-2">O inventário apresentado na minuta não reflete o levantamento atual de necessidades e carece de critérios claros de priorização, conforme recomendado pelo TCU.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-medium text-[#071d41]">Recomendação:</span>
+            <span class="text-xs text-[#666666]">Realizar novo levantamento e aplicar metodologia de priorização (impacto x urgência) conforme boas práticas do SISP.</span>
+          </div>
+        </div>
+        <!-- Finding 3 -->
+        <div class="border-l-4 border-l-[#E60000] bg-[#F8F8F8] rounded-r-lg p-4">
+          <div class="flex items-start justify-between mb-2">
+            <div>
+              <span class="bg-[#fde8e8] text-[#E60000] text-xs font-medium px-2 py-0.5 rounded mr-2">Crítico</span>
+              <span class="text-xs text-[#999999]">Ref: PCA 2026, Item 2.1</span>
+            </div>
+            <span class="text-xs text-[#999999]">Pág. 112</span>
+          </div>
+          <p class="text-sm font-medium text-[#333333] mb-1">Acomp. Orçamentário sem detalhamento por ação e sem alinhamento ao PCA</p>
+          <p class="text-xs text-[#666666] mb-2">Os custos apresentados estão agrupados de forma genérica, sem vincular cada ação ao seu respectivo custo e fonte de recurso, além de não estar alinhado ao PCA vigente.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-medium text-[#071d41]">Recomendação:</span>
+            <span class="text-xs text-[#666666]">Detalhar custos por ação, indicar fontes de recurso (orçamento próprio, SISP, TIC) e cruzar com itens do PCA.</span>
+          </div>
+        </div>
+        <!-- Finding 4 - Partial -->
+        <div class="border-l-4 border-l-[#FFCD07] bg-[#F8F8F8] rounded-r-lg p-4">
+          <div class="flex items-start justify-between mb-2">
+            <div>
+              <span class="bg-[#fff9db] text-[#92780c] text-xs font-medium px-2 py-0.5 rounded mr-2">Parcial</span>
+              <span class="text-xs text-[#999999]">Ref: IN SISP 04/2014, Art. 5º</span>
+            </div>
+            <span class="text-xs text-[#999999]">Pág. 23</span>
+          </div>
+          <p class="text-sm font-medium text-[#333333] mb-1">Matriz de riscos não contempla riscos de segurança da informação</p>
+          <p class="text-xs text-[#666666] mb-2">A matriz contempla riscos operacionais e de projeto, mas omite riscos específicos de segurança da informação exigidos pela IN 04/2014.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-medium text-[#071d41]">Recomendação:</span>
+            <span class="text-xs text-[#666666]">Incluir categoria de riscos de SI com base na NTSGSI e na NBR ISO 27001.</span>
+          </div>
+        </div>
+        <!-- Finding 5 - Partial -->
+        <div class="border-l-4 border-l-[#FFCD07] bg-[#F8F8F8] rounded-r-lg p-4">
+          <div class="flex items-start justify-between mb-2">
+            <div>
+              <span class="bg-[#fff9db] text-[#92780c] text-xs font-medium px-2 py-0.5 rounded mr-2">Parcial</span>
+              <span class="text-xs text-[#999999]">Ref: EFGD, Diretriz DG3</span>
+            </div>
+            <span class="text-xs text-[#999999]">Pág. 95</span>
+          </div>
+          <p class="text-sm font-medium text-[#333333] mb-1">Ausência de indicadores de desempenho para 40% das ações</p>
+          <p class="text-xs text-[#666666] mb-2">A minuta define indicadores para apenas 60% das ações, sendo que a EFGD e a Portaria 778 requerem indicadores para todas as ações.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-medium text-[#071d41]">Recomendação:</span>
+            <span class="text-xs text-[#666666]">Definir indicadores SMART para cada ação restante, com metas, prazos e responsáveis.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conformity by Section of PDTIC -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <h3 class="text-sm font-bold text-[#071d41] mb-4"><i class="fas fa-sitemap mr-2 text-[#1351b4]"></i>Conformidade por Seção da Minuta</h3>
+      <canvas id="chartSections" height="150"></canvas>
+    </div>
+
+    <!-- Action Plan -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-sm font-bold text-[#071d41]"><i class="fas fa-wrench mr-2 text-[#1351b4]"></i>Plano de Ajustes Sugerido</h3>
+        <button class="px-3 py-1.5 text-xs bg-[#1351b4] text-white hover:bg-[#155bcb] rounded transition font-medium">Gerar Plano de Ação</button>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-[#edf5ff] border-b-2 border-[#1351b4]">
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Não Conformidade</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Ação de Ajuste</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Seção Minuta</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Prioridade</th>
+              <th class="text-left py-2.5 px-3 text-[#071d41] text-xs uppercase tracking-wider font-semibold">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-xs text-[#333333]">Ações sem alinhamento ao PEI</td>
+              <td class="py-2.5 px-3 text-xs text-[#666666]">Mapear ações aos objetivos do PEI</td>
+              <td class="py-2.5 px-3 text-xs text-[#666666]">Cap. 4 - Plano de Ações</td>
+              <td class="py-2.5 px-3"><span class="bg-[#fde8e8] text-[#E60000] text-xs font-medium px-2 py-0.5 rounded">Alta</span></td>
+              <td class="py-2.5 px-3"><span class="bg-[#e8f5ff] text-[#005EA2] text-xs font-medium px-2 py-0.5 rounded">Pendente</span></td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-xs text-[#333333]">Inventário desatualizado</td>
+              <td class="py-2.5 px-3 text-xs text-[#666666]">Realizar novo levantamento completo</td>
+              <td class="py-2.5 px-3 text-xs text-[#666666]">Cap. 3 - Inventário</td>
+              <td class="py-2.5 px-3"><span class="bg-[#fde8e8] text-[#E60000] text-xs font-medium px-2 py-0.5 rounded">Alta</span></td>
+              <td class="py-2.5 px-3"><span class="bg-[#e8f5ff] text-[#005EA2] text-xs font-medium px-2 py-0.5 rounded">Pendente</span></td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-xs text-[#333333]">Orçamento sem detalhamento</td>
+              <td class="py-2.5 px-3 text-xs text-[#666666]">Detalhar custos por ação e alinhar ao PCA</td>
+              <td class="py-2.5 px-3 text-xs text-[#666666]">Cap. 5 - Acomp. Orçamentário</td>
+              <td class="py-2.5 px-3"><span class="bg-[#fde8e8] text-[#E60000] text-xs font-medium px-2 py-0.5 rounded">Alta</span></td>
+              <td class="py-2.5 px-3"><span class="bg-[#e8f5ff] text-[#005EA2] text-xs font-medium px-2 py-0.5 rounded">Pendente</span></td>
+            </tr>
+            <tr class="border-b border-[#EEEEEE] hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-xs text-[#333333]">Riscos de SI não contemplados</td>
+              <td class="py-2.5 px-3 text-xs text-[#666666]">Incluir riscos de segurança da informação</td>
+              <td class="py-2.5 px-3 text-xs text-[#666666]">Cap. 6 - Matriz de Riscos</td>
+              <td class="py-2.5 px-3"><span class="bg-[#fff9db] text-[#92780c] text-xs font-medium px-2 py-0.5 rounded">Média</span></td>
+              <td class="py-2.5 px-3"><span class="bg-[#e8f5ff] text-[#005EA2] text-xs font-medium px-2 py-0.5 rounded">Pendente</span></td>
+            </tr>
+            <tr class="hover:bg-[#F8F8F8]">
+              <td class="py-2.5 px-3 text-xs text-[#333333]">Indicadores ausentes para 40% ações</td>
+              <td class="py-2.5 px-3 text-xs text-[#666666]">Definir indicadores SMART para todas ações</td>
+              <td class="py-2.5 px-3 text-xs text-[#666666]">Cap. 4 - Plano de Ações</td>
+              <td class="py-2.5 px-3"><span class="bg-[#fff9db] text-[#92780c] text-xs font-medium px-2 py-0.5 rounded">Média</span></td>
+              <td class="py-2.5 px-3"><span class="bg-[#e8f5ff] text-[#005EA2] text-xs font-medium px-2 py-0.5 rounded">Pendente</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex items-center gap-3 mb-6">
+      <a href="painel-execucao.html" class="px-5 py-2.5 bg-[#1351b4] hover:bg-[#155bcb] text-white text-sm font-medium rounded-md transition">Iniciar Acompanhamento <i class="fas fa-arrow-right ml-1"></i></a>
+      <button class="px-5 py-2.5 bg-[#999999] hover:bg-[#666666] text-white text-sm font-medium rounded-md transition">Exportar Relatório PDF</button>
+      <button class="px-5 py-2.5 border border-[#1351b4] text-[#1351b4] hover:bg-[#edf5ff] text-sm font-medium rounded-md transition">Reenviar Minuta Ajustada</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-8 pt-4 border-t border-[#EEEEEE] text-center">
+      <p class="text-xs text-[#999999]">ANADEC - Agência Nacional de Desenvolvimento © 2026</p>
+    </footer>
+  </main>
+
+  <script>
+    // Conformity by section chart
+    new Chart(document.getElementById('chartSections'), {
+      type: 'bar',
+      data: {
+        labels: ['Introdução', 'Diagnóstico', 'Inventário', 'Plano de Ações', 'Acomp. Orçamentário', 'Matriz de Riscos', 'Plano de Pessoal', 'Governança'],
+        datasets: [
+          { label: 'Conforme', data: [90, 80, 45, 55, 30, 60, 50, 85], backgroundColor: '#168821', borderRadius: 4, barThickness: 24 },
+          { label: 'Parcial', data: [10, 15, 30, 25, 20, 20, 25, 10], backgroundColor: '#FFCD07', borderRadius: 4, barThickness: 24 },
+          { label: 'Não Conforme', data: [0, 5, 25, 20, 50, 20, 25, 5], backgroundColor: '#E60000', borderRadius: 4, barThickness: 24 }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, usePointStyle: true, pointStyle: 'circle' } } },
+        scales: {
+          y: { stacked: true, max: 100, grid: { color: '#EEEEEE' }, ticks: { callback: v => v + '%', font: { size: 10 } } },
+          x: { stacked: true, grid: { display: false }, ticks: { font: { size: 10 } } }
+        }
+      }
+    });
+
+    // Conformity Summary Doughnut
+    new Chart(document.getElementById('chartConformity'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Conformes', 'Parciais', 'Não Conformes'],
+        datasets: [{
+          data: [18, 10, 12],
+          backgroundColor: ['#168821', '#FFCD07', '#E60000'],
+          borderWidth: 0,
+          hoverOffset: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        cutout: '60%',
+        plugins: { legend: { position: 'bottom', labels: { padding: 12, usePointStyle: true, pointStyle: 'circle', font: { size: 11 } } } }
+      }
+    });
+
+    function startVerification() {
+      // Mock: In production, this would trigger file upload and verification
+      alert('Selecione o arquivo da minuta do PDTIC para iniciar a verificação de conformidade.');
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('govbr-sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+      sidebar.classList.toggle('translate-x-0');
+    }
+  </script>
+
+<!-- Chat PDTIC Widget -->
+<div id="chatWidget" class="fixed bottom-6 right-6 z-50">
+  <!-- Chat Panel -->
+  <div id="chatPanel" class="hidden mb-4 w-80 bg-white rounded-xl shadow-2xl border border-[#EEEEEE] overflow-hidden flex flex-col" style="height:460px;">
+    <!-- Chat Header -->
+    <div class="bg-[#071d41] px-4 py-3 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-full bg-[#2670e8] flex items-center justify-center">
+          <i class="fas fa-robot text-white text-xs"></i>
+        </div>
+        <div>
+          <p class="text-white text-sm font-semibold">Assistente PDTIC</p>
+          <p class="text-[#adcdff] text-[10px]">Tire dúvidas sobre a elaboração</p>
+        </div>
+      </div>
+      <button onclick="toggleChat()" class="text-[#adcdff] hover:text-white transition">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <!-- Chat Messages -->
+    <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[#F8F8F8]">
+      <!-- Bot Welcome -->
+      <div class="flex items-start gap-2">
+        <div class="w-6 h-6 rounded-full bg-[#2670e8] flex items-center justify-center shrink-0 mt-0.5">
+          <i class="fas fa-robot text-white text-[8px]"></i>
+        </div>
+        <div class="bg-white rounded-lg rounded-tl-none px-3 py-2 shadow-sm max-w-[85%]">
+          <p class="text-sm text-[#333333]">Olá! Sou o assistente de elaboração do PDTIC. Posso ajudá-lo com dúvidas sobre o Guia do PDTIC, Portaria SISP 778/2021, requisitos do TCU e boas práticas de elaboração.</p>
+          <p class="text-[10px] text-[#999999] mt-1">Agora</p>
+        </div>
+      </div>
+      <!-- Quick Actions -->
+      <div class="flex flex-wrap gap-1.5 pl-8">
+        <button onclick="sendQuickMessage('Quais documentos são obrigatórios para o PDTIC?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Docs obrigatórios</button>
+        <button onclick="sendQuickMessage('Como fazer o alinhamento com o PEI?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Alinhamento PEI</button>
+        <button onclick="sendQuickMessage('Quais os pilares de conformidade do TCU?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Pilares TCU</button>
+        <button onclick="sendQuickMessage('Como elaborar o inventário de necessidades?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Inventário</button>
+      </div>
+    </div>
+    <!-- Chat Input -->
+    <div class="px-3 py-2.5 border-t border-[#EEEEEE] bg-white shrink-0">
+      <div class="flex items-center gap-2">
+        <input id="chatInput" type="text" placeholder="Digite sua dúvida..." class="flex-1 border border-[#CCCCCC] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1351b4] focus:ring-1 focus:ring-[#1351b4]" onkeydown="if(event.key==='Enter')sendMessage()">
+        <button onclick="sendMessage()" class="w-9 h-9 bg-[#1351b4] hover:bg-[#155bcb] text-white rounded-lg flex items-center justify-center transition shrink-0">
+          <i class="fas fa-paper-plane text-sm"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Floating Button -->
+  <button onclick="toggleChat()" id="chatBtn" class="w-14 h-14 bg-[#1351b4] hover:bg-[#155bcb] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-105 hover:shadow-xl ml-auto">
+    <i class="fas fa-comments text-xl" id="chatBtnIcon"></i>
+  </button>
+  <!-- Tooltip -->
+  <div id="chatTooltip" class="absolute bottom-16 right-0 mb-2 bg-[#071d41] text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 pointer-events-none transition-opacity">
+    Dúvidas sobre o PDTIC?
+    <div class="absolute -bottom-1 right-6 w-2 h-2 bg-[#071d41] transform rotate-45"></div>
+  </div>
+</div>
+
+<script>
+// Chat Widget Functions
+function toggleChat() {
+  const panel = document.getElementById('chatPanel');
+  const btnIcon = document.getElementById('chatBtnIcon');
+  const tooltip = document.getElementById('chatTooltip');
+  panel.classList.toggle('hidden');
+  if (panel.classList.contains('hidden')) {
+    btnIcon.className = 'fas fa-comments text-xl';
+  } else {
+    btnIcon.className = 'fas fa-times text-xl';
+    tooltip.style.opacity = '0';
+  }
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  appendMessage(msg, 'user');
+  input.value = '';
+  setTimeout(() => {
+    const response = getBotResponse(msg);
+    appendMessage(response, 'bot');
+  }, 600 + Math.random() * 800);
+}
+
+function sendQuickMessage(msg) {
+  appendMessage(msg, 'user');
+  setTimeout(() => {
+    const response = getBotResponse(msg);
+    appendMessage(response, 'bot');
+  }, 600 + Math.random() * 800);
+}
+
+function appendMessage(text, sender) {
+  const container = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  const now = new Date();
+  const time = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+  if (sender === 'user') {
+    div.className = 'flex justify-end';
+    div.innerHTML = '<div class="bg-[#1351b4] text-white rounded-lg rounded-tr-none px-3 py-2 max-w-[85%] shadow-sm"><p class="text-sm">' + text + '</p><p class="text-[10px] text-[#adcdff] mt-1 text-right">' + time + '</p></div>';
+  } else {
+    div.className = 'flex items-start gap-2';
+    div.innerHTML = '<div class="w-6 h-6 rounded-full bg-[#2670e8] flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-robot text-white text-[8px]"></i></div><div class="bg-white rounded-lg rounded-tl-none px-3 py-2 shadow-sm max-w-[85%]"><p class="text-sm text-[#333333]">' + text + '</p><p class="text-[10px] text-[#999999] mt-1">' + time + '</p></div>';
+  }
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function getBotResponse(msg) {
+  const m = msg.toLowerCase();
+  if (m.includes('obrigatório') || m.includes('documento')) {
+    return 'Segundo o Guia do PDTIC do SISP, os documentos obrigatórios são: PEI, EFGD, LDO, LOA, PCA, PDTIC anterior, inventário de necessidades e análise de riscos. A Portaria SISP 778/2021 detalha os requisitos mínimos em seu Anexo I.';
+  } else if (m.includes('alinhamento') || m.includes('pei')) {
+    return 'O alinhamento com o PEI deve ser demonstrado na Seção 3 do PDTIC, mapeando cada meta de TI a um objetivo estratégico do PEI. Use a ferramenta Mapa de Alinhamento para visualizar e validar essa vinculação.';
+  } else if (m.includes('tcu') || m.includes('pilar') || m.includes('conformidade')) {
+    return 'O TCU avalia o PDTIC em 5 pilares: (1) Alinhamento Estratégico, (2) Qualidade Técnica, (3) Governança de Dados, (4) Governança Ativa e (5) Documentação. Acesse o dashboard de Conformidade para ver o status de cada pilar.';
+  } else if (m.includes('inventário') || m.includes('necessidade')) {
+    return 'O inventário de necessidades deve seguir o modelo do Anexo IV da Portaria SISP 778/2021, contendo: descrição, categoria, prioridade, área solicitante, valor estimado e vinculação ao PEI. Use a página Inventário de Necessidades para cadastrar e gerenciar.';
+  } else if (m.includes('portaria') || m.includes('778') || m.includes('sisp')) {
+    return 'A Portaria SISP 778/2021 estabelece orientações para elaboração, revisão e acompanhamento do PDTIC. Os principais requisitos estão nos Anexos I (conteúdo mínimo), II (modelo de meta), III (modelo de ação) e IV (inventário de necessidades).';
+  } else if (m.includes('meta') || m.includes('ação')) {
+    return 'Cada meta do PDTIC deve conter: descrição, indicador, linha de base, meta final, prazo, responsável e valor estimado. As ações detalham as etapas para alcançar cada meta. Use o Assistente de Demandas para cadastrar novas demandas que alimentarão as metas.';
+  } else if (m.includes('risco')) {
+    return 'A gestão de riscos do PDTIC deve seguir a metodologia da Norma ABNT 31000. Os riscos devem ser identificados, avaliados (probabilidade x impacto) e tratados com planos de mitigação. Acesse a Matriz de Riscos para gerenciar.';
+  } else if (m.includes('orçamento') || m.includes('custo') || m.includes('valor')) {
+    return 'O orçamento do PDTIC deve ser compatível com o PCA e a LOA. Cada ação deve ter valor estimado e fonte de recurso identificada. O Acompanhamento Orçamentário permite monitorar a execução financeira em tempo real.';
+  } else if (m.includes('minuta') || m.includes('verificação')) {
+    return 'A verificação de conformidade da minuta compara seu PDTIC contra os documentos de referência (PEI, EFGD, Portaria 778, normativos TCU). Acesse Verificação da Minuta para submeter seu documento e receber o relatório de não conformidades.';
+  } else if (m.includes('cgd') || m.includes('governança')) {
+    return 'O Comitê de Governança de Dados (CGD) é responsável por supervisionar a execução do PDTIC. As atas das reuniões registram decisões sobre metas, ações e ajustes, formando a memória institucional da governança de TI.';
+  } else {
+    return 'Posso ajudá-lo com dúvidas sobre o Guia do PDTIC, Portaria SISP 778/2021, conformidade TCU, elaboração de metas e ações, inventário de necessidades, gestão de riscos e orçamento. Qual assunto interessa?';
+  }
+}
+
+// Auto-show tooltip after 5 seconds
+setTimeout(() => {
+  const tooltip = document.getElementById('chatTooltip');
+  const panel = document.getElementById('chatPanel');
+  if (panel.classList.contains('hidden')) {
+    tooltip.style.opacity = '1';
+    setTimeout(() => { tooltip.style.opacity = '0'; }, 4000);
+  }
+}, 5000);
+</script>
+
+</body>
+</html>

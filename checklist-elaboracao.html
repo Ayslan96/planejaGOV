@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDTIC | Conteúdo Mínimo (Checklist)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/govbr-core.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link href="https://fonts.cdnfonts.com/css/rawline" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-[#F8F8F8] min-h-screen font-rawline">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#071d41]">
+    <div class="flex items-center justify-between px-6 h-14">
+      <div class="flex items-center gap-3">
+        <button onclick="toggleSidebar()" class="lg:hidden text-white p-1"><i class="fas fa-bars text-lg"></i></button>
+        <a href="index.html" class="text-white font-bold text-lg tracking-wide">PDTIC</a>
+        <span class="text-[#81aefc] text-lg">|</span>
+        <span class="text-[#adcdff] text-sm">ANADEC</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[#adcdff] text-sm hidden sm:inline">Gestor TI</span>
+        <div class="w-8 h-8 rounded-full bg-[#2670e8] text-white flex items-center justify-center text-sm font-medium">GT</div>
+      </div>
+    </div>
+    <div class="bg-[#0c326f] h-8 flex items-center px-6">
+      <span class="text-[#adcdff] text-xs">Sistema de Gestão do PDTIC</span>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="govbr-sidebar" class="fixed top-[5.5rem] left-0 w-60 h-full bg-[#1351b4] z-40 overflow-y-auto transition-transform lg:translate-x-0 -translate-x-full">
+    <nav class="py-4">
+      <div class="px-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">Geral</span></div>
+      <a href="index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-home w-4 text-center"></i> Painel Geral</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">1. Preparação</span></div>
+      <a href="documentos-referencia.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-book w-4 text-center"></i> Docs de Referência e Normativos</a>
+      <a href="linha-tempo.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-clock w-4 text-center"></i> Ciclo de Vida do PDTIC</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">2. Diagnóstico</span></div>
+      <a href="pdtic-anterior.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-history w-4 text-center"></i> PDTIC Anterior — Lições Aprendidas</a>
+      <a href="inventario-necessidades.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-clipboard-list w-4 text-center"></i> Inventário de Necessidades de TIC</a>
+      <a href="analise-swot.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-th-large w-4 text-center"></i> Diagnóstico Estratégico (SWOT)</a>
+      <a href="matriz-riscos.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-exclamation-triangle w-4 text-center"></i> Gestão de Riscos de TIC</a>
+      <a href="mapa-cobertura-efgd.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-compass w-4 text-center"></i> Cobertura da EFGD</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">3. Planejamento</span></div>
+      <a href="principios-criterios.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-balance-scale w-4 text-center"></i> Princípios e Critérios de Priorização</a>
+      <a href="assistente-demandas.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-plus-circle w-4 text-center"></i> Oficialização de Demandas</a>
+      <a href="matriz-rastreabilidade.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-sitemap w-4 text-center"></i> Rastreabilidade Estratégica (MRE)</a>
+      <a href="mapa-alinhamento.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-project-diagram w-4 text-center"></i> Alinhamento Estratégico ao PEI</a>
+      <a href="checklist-elaboracao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition bg-[#155bcb] font-medium"><i class="fas fa-tasks w-4 text-center"></i> Conteúdo Mínimo (Checklist)</a>
+      <a href="verificacao-minuta.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-search-plus w-4 text-center"></i> Verificação de Conformidade</a>
+      <div class="px-4 mt-4 mb-1"><span class="text-[#adcdff] text-[10px] uppercase tracking-widest font-semibold">4. Acompanhamento</span></div>
+      <a href="painel-execucao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-chart-line w-4 text-center"></i> Painel de Execução do PDTIC</a>
+      <a href="acompanhamento-metas.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-bullseye w-4 text-center"></i> Metas e Ações do PDTIC</a>
+      <a href="plano-orcamentario.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-coins w-4 text-center"></i> Execução Orçamentária</a>
+      <a href="capacidade-execucao.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-users-cog w-4 text-center"></i> Capacidade Institucional</a>
+      <a href="dashboard-conformidade.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-shield-alt w-4 text-center"></i> Conformidade e Auditoria</a>
+      <a href="atas-cgd.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-gavel w-4 text-center"></i> Governança — Atas do CGD</a>
+      <a href="relatorios-acompanhamento.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-[#155bcb] transition"><i class="fas fa-file-alt w-4 text-center"></i> Relatório de Acompanhamento</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-60 pt-24 px-6 pb-6 bg-[#F8F8F8] min-h-screen">
+
+    <!-- Page Title + Breadcrumb -->
+    <div class="mb-6">
+      <nav class="text-xs text-[#999999] mb-2">
+        <a href="index.html" class="hover:text-[#1351b4]">Início</a>
+        <span class="mx-1">/</span>
+        <span class="text-[#1351b4]">Planejamento</span>
+        <span class="mx-1">/</span>
+        <span class="text-[#333333]">Checklist Elaboração</span>
+      </nav>
+      <h1 class="text-2xl font-bold text-[#071d41]">Checklist de Elaboração do PDTIC</h1>
+      <p class="text-[#666666] text-sm mt-1">Verificação do conteúdo mínimo obrigatório conforme Anexo I da Portaria 778</p>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-5 mb-6">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-bold text-[#071d41]">Etapa de Elaboração</h3>
+        <span class="text-xs text-[#1351b4] font-medium">Etapa 12 de 20</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#168821]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+        <div class="flex-1 h-2 rounded-full bg-[#CCCCCC]"></div>
+      </div>
+      <p class="text-xs text-[#666666] mt-2">Documentos de Referência → PDTIC Anterior → Inventário → SWOT → Riscos → <strong class="text-[#1351b4]">Checklist</strong> → Verificação → Demandas</p>
+    </div>
+
+    <!-- Overall Progress Card -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] p-6 mb-6">
+      <div class="flex items-center gap-8">
+        <!-- Circular Progress -->
+        <div class="flex flex-col items-center justify-center shrink-0">
+          <svg width="150" height="150" viewBox="0 0 150 150">
+            <circle cx="75" cy="75" r="62" fill="none" stroke="#EEEEEE" stroke-width="10"/>
+            <circle cx="75" cy="75" r="62" fill="none" stroke="#1351b4" stroke-width="10"
+              stroke-dasharray="389.56" stroke-dashoffset="163.61" stroke-linecap="round"
+              transform="rotate(-90 75 75)"/>
+            <text x="75" y="68" text-anchor="middle" fill="#071d41" font-size="32" font-weight="bold">58%</text>
+            <text x="75" y="90" text-anchor="middle" fill="#666666" font-size="11">23 de 40 itens</text>
+          </svg>
+          <p class="text-sm font-semibold text-[#071d41] mt-2">Progresso da Elaboração</p>
+        </div>
+        <!-- Horizontal Breakdown -->
+        <div class="flex-1">
+          <h3 class="text-sm font-bold text-[#071d41] mb-4">Resumo do Progresso</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-3 h-3 rounded-full bg-[#168821] shrink-0"></div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-sm text-[#333333]">Concluídos</span>
+                  <span class="text-sm font-semibold text-[#168821]">23</span>
+                </div>
+                <div class="w-full bg-[#EEEEEE] rounded-full h-2.5">
+                  <div class="bg-[#168821] h-2.5 rounded-full" style="width: 57.5%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-3 h-3 rounded-full bg-[#FFCD07] shrink-0"></div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-sm text-[#333333]">Em andamento</span>
+                  <span class="text-sm font-semibold text-[#92780c]">10</span>
+                </div>
+                <div class="w-full bg-[#EEEEEE] rounded-full h-2.5">
+                  <div class="bg-[#FFCD07] h-2.5 rounded-full" style="width: 25%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-3 h-3 rounded-full bg-[#CCCCCC] shrink-0"></div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-sm text-[#333333]">Pendentes</span>
+                  <span class="text-sm font-semibold text-[#666666]">7</span>
+                </div>
+                <div class="w-full bg-[#EEEEEE] rounded-full h-2.5">
+                  <div class="bg-[#CCCCCC] h-2.5 rounded-full" style="width: 17.5%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 1: Preparação e Contextualização -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] mb-6 overflow-hidden">
+      <div class="h-1.5 bg-[#168821]"></div>
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[#e6f5e8] text-[#168821] flex items-center justify-center text-sm font-bold">1</span>
+            <div>
+              <h3 class="text-sm font-bold text-[#071d41]">Fase 1: Preparação e Contextualização</h3>
+              <p class="text-xs text-[#999999]">5 de 6 itens concluídos</p>
+            </div>
+          </div>
+          <span class="text-xs font-medium text-[#168821] bg-[#e6f5e8] px-2.5 py-1 rounded-full">83%</span>
+        </div>
+        <div class="w-full bg-[#EEEEEE] rounded-full h-2 mb-5">
+          <div class="bg-[#168821] h-2 rounded-full" style="width: 83%"></div>
+        </div>
+        <div class="space-y-3">
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Constituir equipe de elaboração do PDTIC</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Art. 3º</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Definir cronograma de elaboração</span>
+              <span class="block text-xs text-[#999999]">Ref: Guia PDTIC, Etapa 1</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Levantar documentos de referência</span>
+              <span class="block text-xs text-[#999999]">Ref: IN SISP 04, Art. 4º</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Obter PDTIC anterior para análise</span>
+              <span class="block text-xs text-[#999999]">Ref: Guia PDTIC, Etapa 1</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Mapear normativos aplicáveis</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Anexo I</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Realizar workshop de alinhamento com áreas</span>
+              <span class="block text-xs text-[#999999]">Ref: Guia PDTIC, Etapa 1</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 2: Diagnóstico da Situação Atual -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] mb-6 overflow-hidden">
+      <div class="h-1.5 bg-[#FFCD07]"></div>
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[#fff9db] text-[#92780c] flex items-center justify-center text-sm font-bold">2</span>
+            <div>
+              <h3 class="text-sm font-bold text-[#071d41]">Fase 2: Diagnóstico da Situação Atual</h3>
+              <p class="text-xs text-[#999999]">4 de 7 itens concluídos</p>
+            </div>
+          </div>
+          <span class="text-xs font-medium text-[#92780c] bg-[#fff9db] px-2.5 py-1 rounded-full">57%</span>
+        </div>
+        <div class="w-full bg-[#EEEEEE] rounded-full h-2 mb-5">
+          <div class="bg-[#FFCD07] h-2 rounded-full" style="width: 57%"></div>
+        </div>
+        <div class="space-y-3">
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Realizar inventário de necessidades de TI</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Item 3</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Levantar indicadores atuais de desempenho</span>
+              <span class="block text-xs text-[#999999]">Ref: IN SISP 04, Art. 5º</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Mapear sistemas e infraestrutura existentes</span>
+              <span class="block text-xs text-[#999999]">Ref: Guia PDTIC, Etapa 2</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Analisar capacidade de execução</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Item 9</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Realizar análise SWOT de TI</span>
+              <span class="block text-xs text-[#999999]">Ref: Guia PDTIC, Etapa 2</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Identificar gaps de governança</span>
+              <span class="block text-xs text-[#999999]">Ref: EFGD, DG3</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Consolidar diagnóstico organizacional</span>
+              <span class="block text-xs text-[#999999]">Ref: Guia PDTIC, Etapa 2</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 3: Planejamento Estratégico de TI -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] mb-6 overflow-hidden">
+      <div class="h-1.5 bg-[#FFCD07]"></div>
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[#fff9db] text-[#92780c] flex items-center justify-center text-sm font-bold">3</span>
+            <div>
+              <h3 class="text-sm font-bold text-[#071d41]">Fase 3: Planejamento Estratégico de TI</h3>
+              <p class="text-xs text-[#999999]">3 de 7 itens concluídos</p>
+            </div>
+          </div>
+          <span class="text-xs font-medium text-[#92780c] bg-[#fff9db] px-2.5 py-1 rounded-full">43%</span>
+        </div>
+        <div class="w-full bg-[#EEEEEE] rounded-full h-2 mb-5">
+          <div class="bg-[#FFCD07] h-2 rounded-full" style="width: 43%"></div>
+        </div>
+        <div class="space-y-3">
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Definir princípios e diretrizes de TI</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Item 1</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Alinhar objetivos ao PEI e EFGD</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Item 2</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Mapear ações às diretrizes EFGD</span>
+              <span class="block text-xs text-[#999999]">Ref: EFGD, DG1-DG4</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Detalhar indicadores SMART para cada ação</span>
+              <span class="block text-xs text-[#999999]">Ref: IN SISP 04, Art. 6º</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Elaborar plano de metas com prazos</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Item 9</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Definir estratégia de contratação</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Item 8</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Integrar ações ao PCA vigente</span>
+              <span class="block text-xs text-[#999999]">Ref: IN SISP 04, Art. 7º</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 4: Plano de Ações e Orçamento -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] mb-6 overflow-hidden">
+      <div class="h-1.5 bg-[#E60000]"></div>
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[#fde8e8] text-[#E60000] flex items-center justify-center text-sm font-bold">4</span>
+            <div>
+              <h3 class="text-sm font-bold text-[#071d41]">Fase 4: Plano de Ações e Orçamento</h3>
+              <p class="text-xs text-[#999999]">2 de 8 itens concluídos</p>
+            </div>
+          </div>
+          <span class="text-xs font-medium text-[#E60000] bg-[#fde8e8] px-2.5 py-1 rounded-full">25%</span>
+        </div>
+        <div class="w-full bg-[#EEEEEE] rounded-full h-2 mb-5">
+          <div class="bg-[#E60000] h-2 rounded-full" style="width: 25%"></div>
+        </div>
+        <div class="space-y-3">
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Elaborar plano de ações detalhado</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Item 4</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#168821] bg-[#168821] flex items-center justify-center shrink-0 check-box checked">
+              <i class="fas fa-check text-white text-xs"></i>
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#333333]">Definir responsáveis por cada ação</span>
+              <span class="block text-xs text-[#999999]">Ref: Guia PDTIC, Etapa 4</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Detalhar orçamento por ação e fonte</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Item 5</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Elaborar plano de pessoal</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Item 6</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Alinhar orçamento ao PCA</span>
+              <span class="block text-xs text-[#999999]">Ref: IN SISP 04, Art. 7º</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Elaborar matriz de riscos</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Item 7</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Incluir riscos de segurança da informação</span>
+              <span class="block text-xs text-[#999999]">Ref: NTSGSI</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Definir estratégia de mitigação de riscos</span>
+              <span class="block text-xs text-[#999999]">Ref: Guia PDTIC, Etapa 5</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fase 5: Validação e Aprovação -->
+    <div class="bg-white rounded-lg shadow-sm border border-[#EEEEEE] mb-6 overflow-hidden">
+      <div class="h-1.5 bg-[#E60000]"></div>
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[#fde8e8] text-[#E60000] flex items-center justify-center text-sm font-bold">5</span>
+            <div>
+              <h3 class="text-sm font-bold text-[#071d41]">Fase 5: Validação e Aprovação</h3>
+              <p class="text-xs text-[#999999]">0 de 6 itens concluídos</p>
+            </div>
+          </div>
+          <span class="text-xs font-medium text-[#E60000] bg-[#fde8e8] px-2.5 py-1 rounded-full">0%</span>
+        </div>
+        <div class="w-full bg-[#EEEEEE] rounded-full h-2 mb-5">
+          <div class="bg-[#E60000] h-2 rounded-full" style="width: 0%"></div>
+        </div>
+        <div class="space-y-3">
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Submeter minuta para verificação de conformidade</span>
+              <span class="block text-xs text-[#999999]">Ref: Guia PDTIC, Etapa 6</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Realizar consulta interna</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Art. 4º</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Incorporar sugestões recebidas</span>
+              <span class="block text-xs text-[#999999]">Ref: Guia PDTIC, Etapa 6</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Obter aprovação do Comitê de TI</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Art. 5º</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Obter aprovação da Direção</span>
+              <span class="block text-xs text-[#999999]">Ref: Portaria 778, Art. 5º</span>
+            </div>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group" onclick="toggleCheck(this)">
+            <div class="mt-0.5 w-5 h-5 rounded border-2 border-[#CCCCCC] bg-white flex items-center justify-center shrink-0 check-box">
+            </div>
+            <div class="flex-1">
+              <span class="text-sm text-[#666666]">Publicar PDTIC aprovado</span>
+              <span class="block text-xs text-[#999999]">Ref: IN SISP 04, Art. 8º</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex items-center gap-3 mb-6">
+      <a href="verificacao-minuta.html" class="px-5 py-2.5 bg-[#1351b4] hover:bg-[#155bcb] text-white text-sm font-medium rounded-md transition">Próxima Etapa <i class="fas fa-arrow-right ml-1"></i></a>
+      <button onclick="saveProgress()" class="px-5 py-2.5 border border-[#1351b4] text-[#1351b4] hover:bg-[#edf5ff] text-sm font-medium rounded-md transition"><i class="fas fa-save mr-1"></i> Salvar Progresso</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-8 pt-4 border-t border-[#EEEEEE] text-center">
+      <p class="text-xs text-[#999999]">ANADEC - Agência Nacional de Desenvolvimento © 2026</p>
+    </footer>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('govbr-sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+      sidebar.classList.toggle('translate-x-0');
+    }
+
+    function toggleCheck(label) {
+      const checkBox = label.querySelector('.check-box');
+      const textSpan = label.querySelector('.flex-1 span:first-child');
+      const isChecked = checkBox.classList.contains('checked');
+
+      if (isChecked) {
+        // Uncheck
+        checkBox.classList.remove('checked');
+        checkBox.style.backgroundColor = 'white';
+        checkBox.style.borderColor = '#CCCCCC';
+        checkBox.innerHTML = '';
+        textSpan.classList.remove('text-[#333333]');
+        textSpan.classList.add('text-[#666666]');
+      } else {
+        // Check
+        checkBox.classList.add('checked');
+        checkBox.style.backgroundColor = '#168821';
+        checkBox.style.borderColor = '#168821';
+        checkBox.innerHTML = '<i class="fas fa-check text-white text-xs"></i>';
+        textSpan.classList.remove('text-[#666666]');
+        textSpan.classList.add('text-[#333333]');
+      }
+    }
+
+    function saveProgress() {
+      const checkedItems = document.querySelectorAll('.check-box.checked').length;
+      const totalItems = document.querySelectorAll('.check-box').length;
+      const percent = Math.round((checkedItems / totalItems) * 100);
+
+      // Visual feedback
+      const btn = event.target.closest('button');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check mr-1"></i> Salvo!';
+      btn.classList.remove('border-[#1351b4]', 'text-[#1351b4]');
+      btn.classList.add('bg-[#168821]', 'text-white', 'border-[#168821]');
+
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('bg-[#168821]', 'text-white', 'border-[#168821]');
+        btn.classList.add('border-[#1351b4]', 'text-[#1351b4]');
+      }, 2000);
+    }
+  </script>
+
+<!-- Chat PDTIC Widget -->
+<div id="chatWidget" class="fixed bottom-6 right-6 z-50">
+  <!-- Chat Panel -->
+  <div id="chatPanel" class="hidden mb-4 w-80 bg-white rounded-xl shadow-2xl border border-[#EEEEEE] overflow-hidden flex flex-col" style="height:460px;">
+    <!-- Chat Header -->
+    <div class="bg-[#071d41] px-4 py-3 flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-full bg-[#2670e8] flex items-center justify-center">
+          <i class="fas fa-robot text-white text-xs"></i>
+        </div>
+        <div>
+          <p class="text-white text-sm font-semibold">Assistente PDTIC</p>
+          <p class="text-[#adcdff] text-[10px]">Tire dúvidas sobre a elaboração</p>
+        </div>
+      </div>
+      <button onclick="toggleChat()" class="text-[#adcdff] hover:text-white transition">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <!-- Chat Messages -->
+    <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[#F8F8F8]">
+      <!-- Bot Welcome -->
+      <div class="flex items-start gap-2">
+        <div class="w-6 h-6 rounded-full bg-[#2670e8] flex items-center justify-center shrink-0 mt-0.5">
+          <i class="fas fa-robot text-white text-[8px]"></i>
+        </div>
+        <div class="bg-white rounded-lg rounded-tl-none px-3 py-2 shadow-sm max-w-[85%]">
+          <p class="text-sm text-[#333333]">Olá! Sou o assistente de elaboração do PDTIC. Posso ajudá-lo com dúvidas sobre o Guia do PDTIC, Portaria SISP 778/2021, requisitos do TCU e boas práticas de elaboração.</p>
+          <p class="text-[10px] text-[#999999] mt-1">Agora</p>
+        </div>
+      </div>
+      <!-- Quick Actions -->
+      <div class="flex flex-wrap gap-1.5 pl-8">
+        <button onclick="sendQuickMessage('Quais documentos são obrigatórios para o PDTIC?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Docs obrigatórios</button>
+        <button onclick="sendQuickMessage('Como fazer o alinhamento com o PEI?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Alinhamento PEI</button>
+        <button onclick="sendQuickMessage('Quais os pilares de conformidade do TCU?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Pilares TCU</button>
+        <button onclick="sendQuickMessage('Como elaborar o inventário de necessidades?')" class="text-[10px] bg-[#edf5ff] text-[#1351b4] px-2.5 py-1 rounded-full hover:bg-[#d4e5ff] transition border border-[#1351b4]/20">Inventário</button>
+      </div>
+    </div>
+    <!-- Chat Input -->
+    <div class="px-3 py-2.5 border-t border-[#EEEEEE] bg-white shrink-0">
+      <div class="flex items-center gap-2">
+        <input id="chatInput" type="text" placeholder="Digite sua dúvida..." class="flex-1 border border-[#CCCCCC] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[#1351b4] focus:ring-1 focus:ring-[#1351b4]" onkeydown="if(event.key==='Enter')sendMessage()">
+        <button onclick="sendMessage()" class="w-9 h-9 bg-[#1351b4] hover:bg-[#155bcb] text-white rounded-lg flex items-center justify-center transition shrink-0">
+          <i class="fas fa-paper-plane text-sm"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Floating Button -->
+  <button onclick="toggleChat()" id="chatBtn" class="w-14 h-14 bg-[#1351b4] hover:bg-[#155bcb] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-105 hover:shadow-xl ml-auto">
+    <i class="fas fa-comments text-xl" id="chatBtnIcon"></i>
+  </button>
+  <!-- Tooltip -->
+  <div id="chatTooltip" class="absolute bottom-16 right-0 mb-2 bg-[#071d41] text-white text-xs px-3 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 pointer-events-none transition-opacity">
+    Dúvidas sobre o PDTIC?
+    <div class="absolute -bottom-1 right-6 w-2 h-2 bg-[#071d41] transform rotate-45"></div>
+  </div>
+</div>
+
+<script>
+// Chat Widget Functions
+function toggleChat() {
+  const panel = document.getElementById('chatPanel');
+  const btnIcon = document.getElementById('chatBtnIcon');
+  const tooltip = document.getElementById('chatTooltip');
+  panel.classList.toggle('hidden');
+  if (panel.classList.contains('hidden')) {
+    btnIcon.className = 'fas fa-comments text-xl';
+  } else {
+    btnIcon.className = 'fas fa-times text-xl';
+    tooltip.style.opacity = '0';
+  }
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  appendMessage(msg, 'user');
+  input.value = '';
+  setTimeout(() => {
+    const response = getBotResponse(msg);
+    appendMessage(response, 'bot');
+  }, 600 + Math.random() * 800);
+}
+
+function sendQuickMessage(msg) {
+  appendMessage(msg, 'user');
+  setTimeout(() => {
+    const response = getBotResponse(msg);
+    appendMessage(response, 'bot');
+  }, 600 + Math.random() * 800);
+}
+
+function appendMessage(text, sender) {
+  const container = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  const now = new Date();
+  const time = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+  if (sender === 'user') {
+    div.className = 'flex justify-end';
+    div.innerHTML = '<div class="bg-[#1351b4] text-white rounded-lg rounded-tr-none px-3 py-2 max-w-[85%] shadow-sm"><p class="text-sm">' + text + '</p><p class="text-[10px] text-[#adcdff] mt-1 text-right">' + time + '</p></div>';
+  } else {
+    div.className = 'flex items-start gap-2';
+    div.innerHTML = '<div class="w-6 h-6 rounded-full bg-[#2670e8] flex items-center justify-center shrink-0 mt-0.5"><i class="fas fa-robot text-white text-[8px]"></i></div><div class="bg-white rounded-lg rounded-tl-none px-3 py-2 shadow-sm max-w-[85%]"><p class="text-sm text-[#333333]">' + text + '</p><p class="text-[10px] text-[#999999] mt-1">' + time + '</p></div>';
+  }
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function getBotResponse(msg) {
+  const m = msg.toLowerCase();
+  if (m.includes('obrigatório') || m.includes('documento')) {
+    return 'Segundo o Guia do PDTIC do SISP, os documentos obrigatórios são: PEI, EFGD, LDO, LOA, PCA, PDTIC anterior, inventário de necessidades e análise de riscos. A Portaria SISP 778/2021 detalha os requisitos mínimos em seu Anexo I.';
+  } else if (m.includes('alinhamento') || m.includes('pei')) {
+    return 'O alinhamento com o PEI deve ser demonstrado na Seção 3 do PDTIC, mapeando cada meta de TI a um objetivo estratégico do PEI. Use a ferramenta Mapa de Alinhamento para visualizar e validar essa vinculação.';
+  } else if (m.includes('tcu') || m.includes('pilar') || m.includes('conformidade')) {
+    return 'O TCU avalia o PDTIC em 5 pilares: (1) Alinhamento Estratégico, (2) Qualidade Técnica, (3) Governança de Dados, (4) Governança Ativa e (5) Documentação. Acesse o dashboard de Conformidade para ver o status de cada pilar.';
+  } else if (m.includes('inventário') || m.includes('necessidade')) {
+    return 'O inventário de necessidades deve seguir o modelo do Anexo IV da Portaria SISP 778/2021, contendo: descrição, categoria, prioridade, área solicitante, valor estimado e vinculação ao PEI. Use a página Inventário de Necessidades para cadastrar e gerenciar.';
+  } else if (m.includes('portaria') || m.includes('778') || m.includes('sisp')) {
+    return 'A Portaria SISP 778/2021 estabelece orientações para elaboração, revisão e acompanhamento do PDTIC. Os principais requisitos estão nos Anexos I (conteúdo mínimo), II (modelo de meta), III (modelo de ação) e IV (inventário de necessidades).';
+  } else if (m.includes('meta') || m.includes('ação')) {
+    return 'Cada meta do PDTIC deve conter: descrição, indicador, linha de base, meta final, prazo, responsável e valor estimado. As ações detalham as etapas para alcançar cada meta. Use o Assistente de Demandas para cadastrar novas demandas que alimentarão as metas.';
+  } else if (m.includes('risco')) {
+    return 'A gestão de riscos do PDTIC deve seguir a metodologia da Norma ABNT 31000. Os riscos devem ser identificados, avaliados (probabilidade x impacto) e tratados com planos de mitigação. Acesse a Matriz de Riscos para gerenciar.';
+  } else if (m.includes('orçamento') || m.includes('custo') || m.includes('valor')) {
+    return 'O orçamento do PDTIC deve ser compatível com o PCA e a LOA. Cada ação deve ter valor estimado e fonte de recurso identificada. O Acompanhamento Orçamentário permite monitorar a execução financeira em tempo real.';
+  } else if (m.includes('minuta') || m.includes('verificação')) {
+    return 'A verificação de conformidade da minuta compara seu PDTIC contra os documentos de referência (PEI, EFGD, Portaria 778, normativos TCU). Acesse Verificação da Minuta para submeter seu documento e receber o relatório de não conformidades.';
+  } else if (m.includes('cgd') || m.includes('governança')) {
+    return 'O Comitê de Governança de Dados (CGD) é responsável por supervisionar a execução do PDTIC. As atas das reuniões registram decisões sobre metas, ações e ajustes, formando a memória institucional da governança de TI.';
+  } else {
+    return 'Posso ajudá-lo com dúvidas sobre o Guia do PDTIC, Portaria SISP 778/2021, conformidade TCU, elaboração de metas e ações, inventário de necessidades, gestão de riscos e orçamento. Qual assunto interessa?';
+  }
+}
+
+// Auto-show tooltip after 5 seconds
+setTimeout(() => {
+  const tooltip = document.getElementById('chatTooltip');
+  const panel = document.getElementById('chatPanel');
+  if (panel.classList.contains('hidden')) {
+    tooltip.style.opacity = '1';
+    setTimeout(() => { tooltip.style.opacity = '0'; }, 4000);
+  }
+}, 5000);
+</script>
+
+</body>
+</html>
